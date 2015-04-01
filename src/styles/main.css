@@ -17,33 +17,5 @@ body {
   background: #f0f0f0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
-  padding: 170px 0 70px;
-}
-
-.video-overview__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  overflow: auto;
-}
-
-.video-item {
-  display: block;
-  float: left;
-  width: 33.33333%;
-  position: relative;
-}
-
-.video-item__image {
-  width: 100%;
-  display: block;
-}
-
-.video-item__caption {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: red;
-  opacity: 0.4;
+  padding: 160px 0 70px;
 }
