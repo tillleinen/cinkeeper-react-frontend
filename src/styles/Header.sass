@@ -5,6 +5,7 @@
   width: 100%;
   text-align: center;
   z-index: 1;
+  height: 160px;
 }
 
 .header__logo {
@@ -15,6 +16,7 @@
 .nav__list {
   list-style: none;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .nav__list__item {
@@ -36,10 +38,20 @@
   color: #000;
 }
 
+.nav__list__item--center {
+  margin-left: -40px;
+}
+
 .nav__list__item--left {
+  position: absolute;
+  top: 0;
+  right: 50%;
   margin-right: 300px;
 }
 
 .nav__list__item--right {
+  position: absolute;
+  top: 0;
+  left: 50%;
   margin-left: 300px;
 }

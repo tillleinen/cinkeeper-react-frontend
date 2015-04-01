@@ -30,11 +30,11 @@ var Header = React.createClass({
           <li className="nav__list__item nav__list__item--left">
             <Link to="film">Film</Link>
           </li>
-          <li className="nav__list__item">
-            <Link to="photo">Foto</Link>
+          <li className="nav__list__item nav__list__item--center">
+            <Link to="about">About us</Link>
           </li>
           <li className="nav__list__item nav__list__item--right">
-            <Link to="about">About us</Link>
+            <Link to="photo">Foto</Link>
           </li>
         </ul>
         </nav>

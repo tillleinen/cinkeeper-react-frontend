@@ -6,11 +6,20 @@ require('styles/VideoItem.sass');
 
 var VideoItem = React.createClass({
   render: function () {
+  	var imageStyle = {
+  		backgroundImage: 'url(' + this.props.imageSrc + ')'
+  	};
+
     return (
 		<li className="video-item">
-			<img className="video-item__image" src={this.props.imageSrc}></img>
-			<div className="video-item__caption">
-			</div>
+			<a href="test">
+				<div className="video-item__image" style={imageStyle}></div>
+				<div className="video-item__overlay">
+					<div className="video-item__overlay__caption">
+						{this.props.caption}
+					</div>
+				</div>
+			</a>
 		</li>
       );
   }

@@ -15,7 +15,8 @@ html, body {
 
 body {
   background: #f0f0f0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "futura-pt", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
   color: #333;
-  padding: 160px 0 70px;
+  padding: 160px 0 54px;
 }
