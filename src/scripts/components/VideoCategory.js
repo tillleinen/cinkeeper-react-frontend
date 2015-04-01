@@ -1,6 +1,8 @@
 'use strict';
 
 var React = require('react/addons');
+var Router = require('react-router');
+var { Route, DefaultRoute, RouteHandler, Link } = Router;
 
 require('styles/VideoCategory.sass');
 
@@ -12,12 +14,12 @@ var VideoCategory = React.createClass({
 
     return (
         <li className="video-category">
-        	<a href="/videos/:item">
+        	<Link to="category" params={{categoryName: 'test'}} >
 	        	<div className="video-category__image" style={imageStyle}></div>
 	        	<div className="video-category__overlay">
 	        		<div className="video-category__overlay__caption">{this.props.name}</div>
 	        	</div>
-	        </a>
+	        </Link>
         </li>
       );
   }
