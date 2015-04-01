@@ -14,7 +14,7 @@ var content = document.getElementById('content');
 
 var Routes = (
   <Route handler={Cinekeeper} path="/">
-  	<DefaultRoute handler={Home} />
+  	<DefaultRoute name="home" handler={Home} />
     <Route name="film" handler={Film} />
     <Route name="photo" path="/foto" handler={Photo} />
     <Route name="about" handler={About} />
