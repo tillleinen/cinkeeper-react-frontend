@@ -14,7 +14,7 @@ var VideoCategoryItem = React.createClass({
 
     return (
         <li className="video-category">
-        	<Link to="category" params={{categoryName: 'test'}} >
+        	<Link to="category" params={{categorySlug: 'test'}} >
 	        	<div className="video-category__image" style={imageStyle}></div>
 	        	<div className="video-category__overlay">
 	        		<div className="video-category__overlay__caption">{this.props.name}</div>
