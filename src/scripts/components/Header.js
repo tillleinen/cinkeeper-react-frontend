@@ -12,7 +12,7 @@ var Header = React.createClass({
   componentDidMount: function () {
     var min_height = 50;
     // var max_height = React.findDOMNode(this.refs.header);
-    console.log(React.findDOMNode);
+    // console.log(React.findDOMNode);
 
     $(document).on('scroll', function () {
       console.log($(document).scrollTop());
@@ -30,7 +30,7 @@ var Header = React.createClass({
           <li className="nav__list__item nav__list__item--left">
             <Link to="film">Film</Link>
           </li>
-          <li className="nav__list__item nav__list__item--center">
+          <li className="nav__list__item">
             <Link to="about">About us</Link>
           </li>
           <li className="nav__list__item nav__list__item--right">
