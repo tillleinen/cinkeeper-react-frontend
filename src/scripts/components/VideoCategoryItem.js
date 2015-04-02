@@ -4,9 +4,9 @@ var React = require('react/addons');
 var Router = require('react-router');
 var { Route, DefaultRoute, RouteHandler, Link } = Router;
 
-require('styles/VideoCategory.sass');
+require('styles/VideoCategoryItem.sass');
 
-var VideoCategory = React.createClass({
+var VideoCategoryItem = React.createClass({
   render: function () {
   	var imageStyle = {
   		backgroundImage: 'url(' + this.props.imageSrc + ')'
@@ -25,5 +25,4 @@ var VideoCategory = React.createClass({
   }
 });
 
-module.exports = VideoCategory; 
-
+module.exports = VideoCategoryItem; 
