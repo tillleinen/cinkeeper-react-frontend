@@ -14,9 +14,9 @@ var Header = React.createClass({
     // var max_height = React.findDOMNode(this.refs.header);
     // console.log(React.findDOMNode);
 
-    $(document).on('scroll', function () {
-      console.log($(document).scrollTop());
-    });
+    // $(document).on('scroll', function () {
+    //   console.log($(document).scrollTop());
+    // });
   },
 
   render: function () {
