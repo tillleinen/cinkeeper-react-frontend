@@ -35,6 +35,7 @@ var VideoCategoryItem = React.createClass({
 	        	<div className="video-category__image" style={imageStyle}></div>
 	        	<div className="video-category__overlay">
 	        		<div className="video-category__overlay__caption">{this.props.data.name}</div>
+              <Link className="video-category__overlay__btn-close btn-close" to="categories">Close</Link>
 	        	</div>
 	        </Link>
         </li>

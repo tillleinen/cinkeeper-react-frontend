@@ -34,7 +34,7 @@ var VideoPlayer = React.createClass({
         return (
             <div className="video-player" ref="videoPlayer">
                 <iframe className="video-player__iframe" src={videoSrc} width="100%" height={iframeHeight} frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                <Link className="video-player__btn-close" to="category" params={{categorySlug: params.categorySlug}}>Close</Link>
+                <Link className="video-player__btn-close btn-close" to="category" params={{categorySlug: params.categorySlug}}>Close</Link>
             </div>
         );
     },
