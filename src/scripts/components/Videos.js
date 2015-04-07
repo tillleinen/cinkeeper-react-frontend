@@ -2,7 +2,10 @@
 
 var React = require('react/addons');
 var VideoItem = require('./VideoItem.js');
-var VideoCategories = require('./VideoCategories.js');
+var VideoCategoryItem = require('./VideoCategoryItem.js');
+var videoCategoryData = require('./data/video-categories.js');
+
+var _ = require('underscore');
 
 require('styles/Videos.sass');
 
@@ -11,11 +14,21 @@ var Videos = React.createClass({
         router: React.PropTypes.func
     },
 
+    transitionToCategories: function () {
+        this.context.router.transitionTo('categories');
+    },
+
     render: function () {
         var params = this.context.router.getCurrentParams();
+        var category = _.find(videoCategoryData, function(category) {
+            return category.slug === params.categorySlug;
+        });
+
         return (
             <div className="videos">
-                <VideoCategories selectedCategory={params.categorySlug} />
+                <ul className="video-category-list">
+                    <VideoCategoryItem selectedCategory={category.slug} data={category} onClick={this.transitionToCategories} isClosable={true} />
+                </ul>
                 <ul className="video-list">
                     <VideoItem vimeoId="107468450" imageSrc="../../images/video1.jpg" caption="Mortis x Making Of x Hollywoodpsychose x 2014" />
                     <VideoItem vimeoId="113510208" imageSrc="../../images/video5.jpg" caption="JD Collection 2014 x THREE" />
