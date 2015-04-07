@@ -21,9 +21,9 @@ var Header = React.createClass({
 
   render: function () {
     return (
-      <header className="header" ref="header">
-        <Link to="home">
-          <img className="header__logo" src="../../images/logo.png"></img>
+      <header className="header header--collapsed">
+        <Link className="header__logo" to="home">
+          <img src="../../images/logo.png"></img>
         </Link>
         <nav className="nav">
         <ul className="nav__list">
