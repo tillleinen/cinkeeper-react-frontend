@@ -26,8 +26,8 @@ var VideoCategories = React.createClass({
     }
   },
 
-  componentWillMount: function () {
-    this.setState({selectedCategory: this.props.selectedCategory});
+  getInitialState: function () {
+    return {selectedCategory: this.props.selectedCategory};
   },
 
   selectCategory: function (event) {
