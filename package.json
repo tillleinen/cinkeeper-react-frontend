@@ -15,7 +15,10 @@
     "react-router": "^0.13.2",
     "underscore": "^1.8.3",
     "grunt": "*",
-    "grunt-cli": "*"
+    "grunt-cli": "*",
+    "express": "*",
+    "gzippo": "*",
+    "morgan": "*"
   },
   "devDependencies": {
     "css-loader": "~0.9.0",
