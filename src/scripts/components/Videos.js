@@ -14,10 +14,6 @@ var Videos = React.createClass({
         router: React.PropTypes.func
     },
 
-    transitionToCategories: function () {
-        this.context.router.transitionTo('categories');
-    },
-
     render: function () {
         var params = this.context.router.getCurrentParams();
         var category = _.find(videoCategoryData, function(category) {

@@ -24,9 +24,14 @@ var VideoCategoryItem = React.createClass({
   		backgroundImage: 'url(' + this.props.data.imageSrc + ')'
   	};
 
+    var linkTo = "category";
+    if (this.props.isClosable) {
+      linkTo = "categories";
+    }
+
     return (
         <li className={this.composeClassString()} id={this.props.data.slug}>
-        	<Link to="category" params={{categorySlug: this.props.data.slug}} onClick={this.props.onClick}>
+        	<Link to={linkTo} params={{categorySlug: this.props.data.slug}} onClick={this.props.onClick}>
 	        	<div className="video-category__image" style={imageStyle}></div>
 	        	<div className="video-category__overlay">
 	        		<div className="video-category__overlay__caption">{this.props.data.name}</div>
