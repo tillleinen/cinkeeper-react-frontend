@@ -8,23 +8,25 @@ require('styles/VideoCategories.sass');
 
 var VideoCategories = React.createClass({
   statics: {
-    willTransitionTo: function (transition, params, query, callback) {
-        console.log("to film");
-        console.log(params, query);
-        this.resetSelection();
+    willTransitionFrom: function (transition, component, callback) {
+      var isRoutingToVideos = transition.path.match(/^\/film\/[a-z0-9_-]+$/);
+      if(isRoutingToVideos) {
+        VideoCategories.waitForRouteTransitionEnd(component, callback);
+      } else {
         callback();
+      }
     },
 
-    willTransitionFrom: function (transition, component, callback) {
-        console.log("from film");
-        console.log(transition);
-        console.log(component);
-        callback();
-    },
+    waitForRouteTransitionEnd: function (component, callback) {
+      $(component.getDOMNode()).children('li').first()
+        .one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function () {
+          callback();
+      });
+    }
   },
 
-  getInitialState: function() {
-    return {selectedCategory: null};
+  componentWillMount: function () {
+    this.setState({selectedCategory: this.props.selectedCategory});
   },
 
   selectCategory: function (event) {

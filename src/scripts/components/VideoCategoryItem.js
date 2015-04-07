@@ -19,7 +19,7 @@ var VideoCategoryItem = React.createClass({
 
     return (
         <li className={classString} id={this.props.slug}>
-        	<Link to="category" params={{categorySlug: 'test'}} onClick={this.props.onClick}>
+        	<Link to="category" params={{categorySlug: this.props.slug}} onClick={this.props.onClick}>
 	        	<div className="video-category__image" style={imageStyle}></div>
 	        	<div className="video-category__overlay">
 	        		<div className="video-category__overlay__caption">{this.props.name}</div>
