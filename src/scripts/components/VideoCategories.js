@@ -19,7 +19,8 @@ var VideoCategories = React.createClass({
 
     waitForRouteTransitionEnd: function (component, callback) {
       $(component.getDOMNode()).children('li').first()
-        .one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function () {
+        .one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function (e) {
+          e.stopPropagation();
           callback();
       });
     }
