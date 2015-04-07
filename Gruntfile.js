@@ -122,7 +122,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', ['clean', 'copy', 'webpack']);
   
-  grunt.registerTask('heroku:production', []);
+  grunt.registerTask('heroku:production', ['build']);
 
   grunt.registerTask('default', []);
 };
