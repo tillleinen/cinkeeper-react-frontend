@@ -28,6 +28,6 @@ var Routes = (
     </Route>
 );
 
-Router.run(Routes, Router.HistoryLocation, function (Handler) {
+Router.run(Routes, function (Handler) {
     React.render(<Handler/>, content);
 });
