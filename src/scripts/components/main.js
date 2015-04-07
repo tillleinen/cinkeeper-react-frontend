@@ -19,7 +19,6 @@ var Routes = (
     <Route handler={Cinekeeper} path="/">
         <DefaultRoute name="home" handler={Home} />
         <Route name="film" handler={Film}>
-            <DefaultRoute name="categories" handler={VideoCategories} />
             <Route name="category" path=":categorySlug" handler={Videos} />
             <Route name="video" path=":categorySlug/:vimeoId" handler={VideoPlayer} />
         </Route>

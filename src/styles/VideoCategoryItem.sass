@@ -5,12 +5,27 @@
 	list-style: none;
 }
 
+.video-category-list.hasSelectedCategory .video-category {
+	height: 0;
+}
+
 .video-category {
 	position: relative;
 	text-align: center;
 	line-height: 150px;
 	height: 150px;
 	background: black;
+
+	-webkit-transition: line-height .5s ease-in-out, height .5s ease-in-out;
+	-moz-transition: line-height .5s ease-in-out, height .5s ease-in-out;
+	-ms-transition: line-height .5s ease-in-out, height .5s ease-in-out;
+	-o-transition: line-height .5s ease-in-out, height .5s ease-in-out;
+	transition: line-height .5s ease-in-out, height .5s ease-in-out;
+}
+
+.video-category--selected {
+	height: 75px !important;
+	line-height: 75px !important;
 }
 
 .video-category__image {

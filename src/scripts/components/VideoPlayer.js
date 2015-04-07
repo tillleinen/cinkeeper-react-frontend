@@ -8,6 +8,11 @@ var $ = require('jquery');
 require('styles/VideoPlayer.sass');
 
 var VideoPlayer = React.createClass({
+    statics: {
+      willTransitionTo: function () {
+          console.log("video player");
+      },        
+    },
 
     contextTypes: {
         router: React.PropTypes.func
