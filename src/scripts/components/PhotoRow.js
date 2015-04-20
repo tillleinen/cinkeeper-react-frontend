@@ -6,19 +6,18 @@ var $ = require('jquery');
 
 require('styles/PhotoRow.sass');
 
-var scrollInterval;
-
 var PhotoRow = React.createClass({
   componentDidMount: function () {
-    scrollInterval = setInterval(this.handleInterval, 10);
+    this.scrollInterval = setInterval(this.handleInterval, 10);
   },
 
   componentWillUnmount: function () {
-    clearInterval(scrollInterval);
+    clearInterval(this.scrollInterval);
+    window.cancelAnimationFrame(this.animationFrame);
   },
 
   handleInterval: function () {
-    window.requestAnimationFrame(this.moveY);
+    this.animationFrame = window.requestAnimationFrame(this.moveY);
   },
 
   moveY: function () {
