@@ -3,7 +3,7 @@ module.exports = [
 		"id": 1,
 		"image": {
 			"image": {
-				"url": "../images/photos/DSC_0273.jpg"
+				"url": "../images/DSC_0273.jpg"
 			}
 		}
 	},
@@ -11,7 +11,7 @@ module.exports = [
 		"id": 1,
 		"image": {
 			"image": {
-				"url": "../images/photos/IMG_8384.jpg"
+				"url": "../images/IMG_8384.jpg"
 			}
 		}
 	},
@@ -19,7 +19,7 @@ module.exports = [
 		"id": 1,
 		"image": {
 			"image": {
-				"url": "../images/photos/Hunde-9977(3).jpg"
+				"url": "../images/Hunde-9977(3).jpg"
 			}
 		}
 	},
@@ -27,7 +27,7 @@ module.exports = [
 		"id": 1,
 		"image": {
 			"image": {
-				"url": "../images/photos/IMG_7697.jpg"
+				"url": "../images/IMG_7697.jpg"
 			}
 		}
 	},
@@ -35,7 +35,7 @@ module.exports = [
 		"id": 1,
 		"image": {
 			"image": {
-				"url": "../images/photos/IMG_1413.jpg"
+				"url": "../images/IMG_1413.jpg"
 			}
 		}
 	},
@@ -43,7 +43,7 @@ module.exports = [
 		"id": 1,
 		"image": {
 			"image": {
-				"url": "../images/photos/IMG_7025.jpg"
+				"url": "../images/IMG_7025.jpg"
 			}
 		}
 	},
@@ -51,7 +51,7 @@ module.exports = [
 		"id": 1,
 		"image": {
 			"image": {
-				"url": "../images/photos/IMG_7531-(3).jpg"
+				"url": "../images/IMG_7531-(3).jpg"
 			}
 		}
 	},
@@ -59,7 +59,7 @@ module.exports = [
 		"id": 1,
 		"image": {
 			"image": {
-				"url": "../images/photos/IMG_0768.jpg"
+				"url": "../images/IMG_0768.jpg"
 			}
 		}
 	},
@@ -67,7 +67,7 @@ module.exports = [
 		"id": 1,
 		"image": {
 			"image": {
-				"url": "../images/photos/Filmspur-P-Malta-Background.jpg"
+				"url": "../images/Filmspur-P-Malta-Background.jpg"
 			}
 		}
 	},
@@ -75,7 +75,7 @@ module.exports = [
 		"id": 1,
 		"image": {
 			"image": {
-				"url": "../images/photos/Sonnenuntergang_Kroatien.jpg"
+				"url": "../images/Sonnenuntergang_Kroatien.jpg"
 			}
 		}
 	}
