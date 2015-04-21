@@ -8,16 +8,19 @@ require('styles/PhotoRow.sass');
 
 var PhotoRow = React.createClass({
   componentDidMount: function () {
+    this.animationFrames = [];
     this.scrollInterval = setInterval(this.handleInterval, 10);
   },
 
   componentWillUnmount: function () {
     clearInterval(this.scrollInterval);
-    window.cancelAnimationFrame(this.animationFrame);
+    for (var i = this.animationFrames.length - 1; i >= 0; i--) {
+      window.cancelAnimationFrame(this.animationFrames[i]);
+    };
   },
 
   handleInterval: function () {
-    this.animationFrame = window.requestAnimationFrame(this.moveY);
+    this.animationFrames.push(window.requestAnimationFrame(this.moveY));
   },
 
   moveY: function () {
@@ -37,10 +40,10 @@ var PhotoRow = React.createClass({
 
   render: function () {
     return (
-        <ul className="photo-list" ref="row">
+        <ul className="photo-list" ref="row" style={{width: 100 / this.props.numRows + '%'}}>
           {
             this.props.photos.map(function (photo) {
-              return  <PhotoItem imageSrc={photo.image.image.url} />;
+              return  <PhotoItem key={photo.id} imageSrc={photo.image.image.url} />;
             })
           }
         </ul>
