@@ -16,7 +16,7 @@ var PhotoRow = React.createClass({
     clearInterval(this.scrollInterval);
     for (var i = this.animationFrames.length - 1; i >= 0; i--) {
       window.cancelAnimationFrame(this.animationFrames[i]);
-    };
+    }
   },
 
   handleInterval: function () {
