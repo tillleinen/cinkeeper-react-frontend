@@ -29,37 +29,36 @@ body {
 
 .btn-close {
   text-indent: -9999px;
-  overflow: hidden;
   width: 30px;
   height: 30px;
 }
 
 .btn-close::before {
   position: absolute;
-  top: 43%;
-  left: -14%;
+  width: 141.42%;
   content: "";
-  width: 129%;
   height: 3px;
   background: white;
+  top: 50%;
+  left: -20.71%;
 
-  -moz-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg); /* IE 9 */
-  -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
-  transform: rotate(-45deg);
+  -moz-transform: translateY(-50%) rotate(-45deg);
+  -ms-transform: translateY(-50%) rotate(-45deg); /* IE 9 */
+  -webkit-transform: translateY(-50%) rotate(-45deg); /* Chrome, Safari, Opera */
+  transform: translateY(-50%) rotate(-45deg);
 }
 
 .btn-close::after {
     position: absolute;
-    bottom: 44%;
-    left: -14%;
+    width: 141.42%;
     content: "";
-    width: 129%;
     height: 3px;
     background: white;
+    bottom: 50%;
+    left: -20.71%;
 
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg); /* IE 9 */
-    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-    transform: rotate(45deg);
+    -moz-transform: translateY(50%) rotate(45deg);
+    -ms-transform: translateY(50%) rotate(45deg); /* IE 9 */
+    -webkit-transform: translateY(50%) rotate(45deg); /* Chrome, Safari, Opera */
+    transform: translateY(50%) rotate(45deg);
   }
