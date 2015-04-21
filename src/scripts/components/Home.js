@@ -7,8 +7,7 @@ require('styles/Home.sass');
 var Home = React.createClass({
   render: function () {
     return (
-	  <div>
-	    <p>Content for Home</p>
+	  <div className="home">
 	  </div>
 	);
   }

@@ -13,7 +13,7 @@ var React = require('react');
 var Router = require('react-router');
 var { Route, DefaultRoute, RouteHandler, Link } = Router;
 
-var content = document.getElementById('content');
+var app = document.getElementById('app');
 
 var Routes = (
     <Route handler={Cinekeeper} path="/">
@@ -29,5 +29,5 @@ var Routes = (
 );
 
 Router.run(Routes, function (Handler) {
-    React.render(<Handler/>, content);
+    React.render(<Handler/>, app);
 });
