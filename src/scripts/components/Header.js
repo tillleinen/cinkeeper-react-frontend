@@ -9,21 +9,11 @@ var $ = require('jquery');
 require('styles/Header.sass');
 
 var Header = React.createClass({
-  componentDidMount: function () {
-    var min_height = 50;
-    // var max_height = React.findDOMNode(this.refs.header);
-    // console.log(React.findDOMNode);
-
-    // $(document).on('scroll', function () {
-    //   console.log($(document).scrollTop());
-    // });
-  },
-
   render: function () {
     return (
-      <header className="header header--collapsed">
+      <header className="header">
         <Link className="header__logo" to="home">
-          <img src="../../images/logo.png"></img>
+          Cinekeeper
         </Link>
         <nav className="nav">
         <ul className="nav__list">
