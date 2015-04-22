@@ -10,15 +10,16 @@
   "mainInput": "main",
   "mainOutput": "main",
   "dependencies": {
-    "jquery": "~2.1.3",
-    "react": "~0.13.1",
-    "react-router": "^0.13.2",
-    "underscore": "^1.8.3",
+    "express": "*",
+    "fastclick": "^1.0.6",
     "grunt": "*",
     "grunt-cli": "*",
-    "express": "*",
     "gzippo": "*",
-    "morgan": "*"
+    "jquery": "~2.1.3",
+    "morgan": "*",
+    "react": "~0.13.1",
+    "react-router": "^0.13.2",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "css-loader": "~0.9.0",
