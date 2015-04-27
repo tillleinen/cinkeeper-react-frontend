@@ -27,7 +27,7 @@ var Videos = React.createClass({
                 <ul className="video-list">
                     {
                         category.videos.map(function (video) {
-                            return <VideoItem vimeoId={video.vimeo_id} imageSrc={video.imageSrc} caption={video.name} />;
+                            return <VideoItem key={video.id} vimeoId={video.vimeo_id} imageSrc={video.imageSrc} caption={video.name} />;
                         })
                     }
                 </ul>
