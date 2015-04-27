@@ -32,5 +32,5 @@ Router.run(Routes, function (Handler) {
     React.render(<Handler/>, app);
 });
 
-var attachFastClick = require('fastclick');
-attachFastClick(document.body);
+var fastclick = require('fastclick');
+fastclick.attach(document.body);
