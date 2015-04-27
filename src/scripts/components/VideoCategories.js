@@ -1,58 +1,42 @@
 'use strict';
 
 var React = require('react/addons');
+var Router = require('react-router');
+var { Route, DefaultRoute, RouteHandler, Link } = Router;
+
+var _ = require('underscore');
+
 var $ = require('jquery');
 var VideoCategoryItem = require('./VideoCategoryItem.js');
 
 require('styles/VideoCategories.sass');
 
 var VideoCategories = React.createClass({
-  statics: {
-    willTransitionFrom: function (transition, component, callback) {
-      var isRoutingToVideos = transition.path.match(/^\/film\/[a-z0-9_-]+$/);
-      if(isRoutingToVideos) {
-        VideoCategories.waitForRouteTransitionEnd(component, callback);
-      } else {
-        callback();
-      }
-    },
-
-    waitForRouteTransitionEnd: function (component, callback) {
-      $(component.getDOMNode()).children('li').first()
-        .one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function (e) {
-          e.stopPropagation();
-          callback();
-      });
-    }
-  },
-
-  getInitialState: function () {
-    return {selectedCategory: this.props.selectedCategory};
-  },
-
-  selectCategory: function (event) {
-    this.setState({selectedCategory: $(event.target).closest('.video-category').attr('id')});
-  },
-
-  resetSelection: function () {
-    this.setState({selectedCategory: null});
+  contextTypes: {
+      router: React.PropTypes.func
   },
 
   render: function () {
+    var params = this.context.router.getCurrentParams();
+
     var classString = 'video-category-list';
-    if(this.state.selectedCategory) {
+    if(params.categorySlug) {
       classString += ' hasSelectedCategory';
     }
 
     var _this = this;
     return (
-      <ul className={classString}>
-        {
-          this.props.videoCategories.map(function(category) {
-            return <VideoCategoryItem key={category.slug} selectedCategory={_this.state.selectedCategory} data={category} onClick={_this.selectCategory}/>;
-          })
-        }
-      </ul>
+      <div>
+        <ul className={classString}>
+          {
+            _this.props.videoCategories.map(function(category) {
+              var isSelected = (category.slug === params.categorySlug);
+              return <VideoCategoryItem key={category.slug} isSelected={isSelected} data={category} onClick={_this.selectCategory}/>;
+            })
+          }
+        </ul>
+        <RouteHandler videoCategories={_this.props.videoCategories}/>
+      </div>
     );
   }
 });

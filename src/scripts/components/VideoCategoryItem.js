@@ -10,11 +10,8 @@ var VideoCategoryItem = React.createClass({
 
   composeClassString: function () {
     var classString = 'video-category';
-    if(this.props.selectedCategory === this.props.data.slug) {
-      classString += ' video-category--selected';
-    }
-    if(this.props.isClosable) {
-      classString += ' isClosable'; 
+    if(this.props.isSelected) {
+      classString += ' video-category--selected isClosable'; 
     }
     return classString;
   },
@@ -25,7 +22,7 @@ var VideoCategoryItem = React.createClass({
   	};
 
     var linkTo = "category";
-    if (this.props.isClosable) {
+    if (this.props.isSelected) {
       linkTo = "categories";
     }
 

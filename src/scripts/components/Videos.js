@@ -1,6 +1,9 @@
 'use strict';
 
 var React = require('react/addons');
+var Router = require('react-router');
+var { Route, DefaultRoute, RouteHandler, Link } = Router;
+
 var VideoItem = require('./VideoItem.js');
 var VideoCategoryItem = require('./VideoCategoryItem.js');
 
@@ -21,9 +24,6 @@ var Videos = React.createClass({
 
         return (
             <div className="videos">
-                <ul className="video-category-list">
-                    <VideoCategoryItem selectedCategory={category.slug} data={category} onClick={this.transitionToCategories} isClosable={true} />
-                </ul>
                 <ul className="video-list">
                     {
                         category.videos.map(function (video) {
@@ -31,6 +31,7 @@ var Videos = React.createClass({
                         })
                     }
                 </ul>
+                <RouteHandler/>
             </div>
         );
     }

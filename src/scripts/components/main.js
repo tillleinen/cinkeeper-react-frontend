@@ -19,9 +19,11 @@ var Routes = (
     <Route handler={Cinekeeper} path="/">
         <DefaultRoute name="home" handler={Home} />
         <Route name="film" handler={Film}>
-            <DefaultRoute name="categories" handler={VideoCategories} />
-            <Route name="category" path=":categorySlug" handler={Videos} />
-            <Route name="video" path=":categorySlug/:vimeoId" handler={VideoPlayer} />
+            <Route name="categories" path="/film" handler={VideoCategories}>
+                <Route name="category" path=":categorySlug" handler={Videos}>
+                    <Route name="video" path=":categorySlug/:vimeoId" handler={VideoPlayer} />
+                </Route>
+            </Route>
         </Route>
         <Route name="photo" path="/foto" handler={Photo} />
         <Route name="about" handler={About} />
