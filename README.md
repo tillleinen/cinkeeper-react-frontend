@@ -12,6 +12,8 @@ The frontend for the cinekeeper website
 npm install
 ```
 
+Duplicate ```.env.example``` and name it to ```.env```. Adjust vars if necessary.
+
 ## Development
 
 ### Start Server

@@ -32,3 +32,6 @@ npm-debug.log
 .tmp
 dist
 /src/scripts/main.js
+
+.env
+/src/scripts/constants/Env.compiled.js

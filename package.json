@@ -10,6 +10,7 @@
   "mainInput": "main",
   "mainOutput": "main",
   "dependencies": {
+    "dotenvify": "^1.0.0",
     "express": "*",
     "fastclick": "^1.0.6",
     "grunt": "*",
@@ -31,6 +32,7 @@
     "grunt-contrib-copy": "~0.5.0",
     "grunt-karma": "~0.8.3",
     "grunt-open": "~0.2.3",
+    "grunt-shell": "^1.1.2",
     "grunt-webpack": "~1.0.8",
     "jshint-loader": "~0.8.0",
     "jsx-loader": "~0.12.2",

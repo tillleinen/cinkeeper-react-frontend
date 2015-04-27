@@ -1,9 +1,8 @@
 'use strict';
 
-var API_HOST = 'http://localhost:3000';
-
 var request = require('superagent');
-var prefix = require('superagent-prefix')(API_HOST);
+var Env = require('../constants/Env.compiled.js');
+var prefix = require('superagent-prefix')(Env.API_HOST);
 
 module.exports = {
 	get: function (path) {

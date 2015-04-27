@@ -104,6 +104,12 @@ module.exports = function (grunt) {
           ]
         }]
       }
+    },
+
+    shell: {
+      envify: {
+        command: './node_modules/dotenvify/bin/dotenvify <%= pkg.src %>/scripts/constants/Env.js > <%= pkg.src %>/scripts/constants/Env.compiled.js'
+      }
     }
   });
 
@@ -120,7 +126,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', ['karma']);
 
-  grunt.registerTask('build', ['clean', 'copy', 'webpack']);
+  grunt.registerTask('build', ['clean', 'copy', 'shell:envify', 'webpack']);
   
   grunt.registerTask('heroku:production', ['build']);
 
