@@ -1,133 +1,54 @@
 module.exports = [
-	{
-		name: "Music",
-		slug: "music",
-		imageSrc: "../../images/video1.jpg",
-		videos: [
-			{
-				id: 1,
-				name: "Mortis x Making Of x Hollywoodpsychose x 2014",
-				vimeo_id: 107468450,
-				imageSrc: "../../images/video1.jpg"
-			},
-			{
-				id: 1,
-				name: "Klangpoet x 4U x Wildcard Contest ESC 2015",
-				vimeo_id: 116354206,
-				imageSrc: "../../images/video3.jpg"
-			},
-			{
-				id: 1,
-				name: "FAVRY x PRAY x 2014",
-				vimeo_id: 110206885,
-				imageSrc: "../../images/video6.jpg"
-			},
-			{
-				id: 1,
-				name: "CINEKEEPER x SHOWREEL x 2015",
-				vimeo_id: 121350228,
-				imageSrc: "../../images/video2.jpg"
-			},
-		]
-	},
-	{
-		name: "Lifestyle",
-		slug: "lifestyle",
-		imageSrc: "../../images/video2.jpg" ,
-		videos: [
-			{
-				id: 1,
-				name: "Mortis x Making Of x Hollywoodpsychose x 2014",
-				vimeo_id: 107468450,
-				imageSrc: "../../images/video1.jpg"
-			},
-			{
-				id: 1,
-				name: "Fuchsteufelswild x PARADIGMA x Teaser I",
-				vimeo_id: 114948026,
-				imageSrc: "../../images/video4.jpg"
-			},
-			{
-				id: 1,
-				name: "THE WORLD IS YOURS x 99FFA x 2015 x TOP99",
-				vimeo_id: 113278713,
-				imageSrc: "../../images/video7.jpg"
-			},
-			{
-				id: 1,
-				name: "CINEKEEPER x SHOWREEL x 2015",
-				vimeo_id: 121350228,
-				imageSrc: "../../images/video2.jpg"
-			},
-			{
-				id: 1,
-				name: "JD Collection 2014 x THREE",
-				vimeo_id: 113510208,
-				imageSrc: "../../images/video5.jpg"
-			},
-		]
-	},
-	{
-		name: "Shortfilm",
-		slug: "shortfilm",
-		imageSrc: "../../images/video3.jpg" ,
-		videos: [
-			{
-				id: 1,
-				name: "Mortis x Making Of x Hollywoodpsychose x 2014",
-				vimeo_id: 107468450,
-				imageSrc: "../../images/video1.jpg"
-			},
-			{
-				id: 1,
-				name: "Klangpoet x 4U x Wildcard Contest ESC 2015",
-				vimeo_id: 116354206,
-				imageSrc: "../../images/video3.jpg"
-			},
-			{
-				id: 1,
-				name: "Fuchsteufelswild x PARADIGMA x Teaser I",
-				vimeo_id: 114948026,
-				imageSrc: "../../images/video4.jpg"
-			},
-			{
-				id: 1,
-				name: "THE WORLD IS YOURS x 99FFA x 2015 x TOP99",
-				vimeo_id: 113278713,
-				imageSrc: "../../images/video7.jpg"
-			}
-		]
-	},
-	{
-		name: "Fashion",
-		slug: "fashion",
-		imageSrc: "../../images/video4.jpg" ,
-		videos: [
-			{
-				id: 1,
-				name: "Fuchsteufelswild x PARADIGMA x Teaser I",
-				vimeo_id: 114948026,
-				imageSrc: "../../images/video4.jpg"
-			},
-			{
-				id: 1,
-				name: "FAVRY x PRAY x 2014",
-				vimeo_id: 110206885,
-				imageSrc: "../../images/video6.jpg"
-			},
-			{
-				id: 1,
-				name: "CINEKEEPER x SHOWREEL x 2015",
-				vimeo_id: 121350228,
-				imageSrc: "../../images/video2.jpg"
-			},
-			{
-				id: 1,
-				name: "JD Collection 2014 x THREE",
-				vimeo_id: 113510208,
-				imageSrc: "../../images/video5.jpg"
-			},
-		]
-	}
+  {
+    "id": 1,
+    "name": "Music",
+    "slug": "music",
+    "imageSrc": "http://localhost:3000/uploads/video_category/image/1/video1.jpg",
+    "videos": [
+      {
+        "id": 1,
+        "name": "Mortis x Making Of x Hollywoodpsychose x 2014",
+        "slug": "mortis-x-making-of-x-hollywoodpsychose-x-2014",
+        "vimeo_id": 121350228,
+        "imageSrc": "http://localhost:3000/uploads/video/image/1/video1.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Klangpoet x 4U x Wildcard Contest ESC 2015",
+        "slug": "klangpoet-x-4u-x-wildcard-contest-esc-2015",
+        "vimeo_id": 116354206,
+        "imageSrc": "http://localhost:3000/uploads/video/image/2/video3.jpg"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Lifestyle",
+    "slug": "lifestyle",
+    "imageSrc": "http://localhost:3000/uploads/video_category/image/2/video2.jpg",
+    "videos": []
+  },
+  {
+    "id": 3,
+    "name": "Fashion",
+    "slug": "fashion",
+    "imageSrc": "http://localhost:3000/uploads/video_category/image/3/video4.jpg",
+    "videos": [
+      {
+        "id": 3,
+        "name": "Fuchsteufelswild x PARADIGMA x Teaser I",
+        "slug": "fuchsteufelswild-x-paradigma-x-teaser-i",
+        "vimeo_id": 107468450,
+        "imageSrc": "http://localhost:3000/uploads/video/image/3/video4.jpg"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Shortfilm",
+    "slug": "shortfilm",
+    "imageSrc": "http://localhost:3000/uploads/video_category/image/4/video3.jpg",
+    "videos": []
+  }
 ];
 
