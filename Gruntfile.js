@@ -119,6 +119,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'shell:envify',
       'open:dev',
       'webpack-dev-server'
     ]);
