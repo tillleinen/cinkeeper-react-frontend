@@ -12,6 +12,28 @@ var VideoPlayer = React.createClass({
         router: React.PropTypes.func
     },
 
+    statics: {
+        willTransitionFrom: function (transition, component, callback) {
+          $(component.getDOMNode()).removeClass('is-showing');
+          VideoPlayer.waitForRouteTransitionEnd(component, callback);
+        },
+
+        waitForRouteTransitionEnd: function (component, callback) {
+          $(component.getDOMNode()).first()
+            .one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function (e) {
+              e.stopPropagation();
+              callback();
+          });
+        }
+    },
+
+    componentDidMount: function () {
+        var component = this;
+        setTimeout(function () {
+            $(component.getDOMNode()).addClass('is-showing');
+        });
+    },
+
     componentWillMount: function () {
         $(window).on('resize', this.setIframeHeight).trigger('resize');
     },

@@ -3,6 +3,20 @@
 	position: absolute;
 	top: 0;
 	width: 100%;
+	opacity: 0;
+
+	transform: scale(.9) translateY(0);
+
+	-webkit-transition: opacity .4s ease-in-out, transform .4s ease-in-out;
+	-moz-transition: opacity .4s ease-in-out, transform .4s ease-in-out;
+	-ms-transition: opacity .4s ease-in-out, transform .4s ease-in-out;
+	-o-transition: opacity .4s ease-in-out, transform .4s ease-in-out;
+	transition: opacity .4s ease-in-out, transform .4s ease-in-out;
+}
+
+.is-showing {
+	opacity: 1;
+	transform: scale(1);
 }
 
 .video-player__iframe {
