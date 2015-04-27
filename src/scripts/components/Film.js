@@ -11,7 +11,7 @@ require('styles/Film.sass');
 var Film = React.createClass({
 	getInitialState: function () {
 		return {
-			videoCategories: []
+			videoCategories: null
 		};
 	},
 
@@ -35,7 +35,6 @@ var Film = React.createClass({
 			});
 		}
 	},
-
 
     render: function () {
         return (

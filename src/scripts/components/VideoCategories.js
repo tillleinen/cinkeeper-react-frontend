@@ -16,26 +16,39 @@ var VideoCategories = React.createClass({
       router: React.PropTypes.func
   },
 
-  render: function () {
+  composeClassString: function () {
     var params = this.context.router.getCurrentParams();
-
     var classString = 'video-category-list';
     if(params.categorySlug) {
       classString += ' hasSelectedCategory';
     }
+    return classString;
+  },
 
+  render: function () {
+    var params = this.context.router.getCurrentParams();
     var _this = this;
+
+    var content;
+    if(this.props.videoCategories) {
+      content = (
+        <div>
+          <ul className={this.composeClassString()}>
+            {
+              _this.props.videoCategories.map(function(category) {
+                var isSelected = (category.slug === params.categorySlug);
+                return <VideoCategoryItem key={category.slug} isSelected={isSelected} data={category} onClick={_this.selectCategory}/>;
+              })
+            }
+          </ul>
+          <RouteHandler videoCategories={_this.props.videoCategories}/>
+        </div>
+      );
+    }
+
     return (
       <div>
-        <ul className={classString}>
-          {
-            _this.props.videoCategories.map(function(category) {
-              var isSelected = (category.slug === params.categorySlug);
-              return <VideoCategoryItem key={category.slug} isSelected={isSelected} data={category} onClick={_this.selectCategory}/>;
-            })
-          }
-        </ul>
-        <RouteHandler videoCategories={_this.props.videoCategories}/>
+        {content}
       </div>
     );
   }
