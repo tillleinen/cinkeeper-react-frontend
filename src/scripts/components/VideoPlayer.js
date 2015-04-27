@@ -27,7 +27,7 @@ var VideoPlayer = React.createClass({
         var iframeHeight = this.state.iframeHeight + 'px';
         return (
             <div className="video-player" ref="videoPlayer">
-                <iframe className="video-player__iframe" src={videoSrc} width="100%" height={iframeHeight} frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <iframe className="video-player__iframe" src={videoSrc} width="100%" height={iframeHeight} frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen></iframe>
                 <Link className="video-player__btn-close btn-close" to="category" params={{categorySlug: params.categorySlug}}>Close</Link>
             </div>
         );
