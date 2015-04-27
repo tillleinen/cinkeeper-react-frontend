@@ -11,6 +11,7 @@
   "mainOutput": "main",
   "dependencies": {
     "dotenvify": "^1.0.0",
+    "envify": "^3.4.0",
     "express": "*",
     "fastclick": "^1.0.6",
     "grunt": "*",

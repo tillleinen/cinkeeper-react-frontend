@@ -107,8 +107,12 @@ module.exports = function (grunt) {
     },
 
     shell: {
-      envify: {
+      dotenvify: {
         command: './node_modules/dotenvify/bin/dotenvify <%= pkg.src %>/scripts/constants/Env.js > <%= pkg.src %>/scripts/constants/Env.compiled.js'
+      },
+
+      envify: {
+        command: './node_modules/envify/bin/envify <%= pkg.src %>/scripts/constants/Env.js > <%= pkg.src %>/scripts/constants/Env.compiled.js'
       }
     }
   });
@@ -119,7 +123,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
-      'shell:envify',
+      'shell:dotenvify',
       'open:dev',
       'webpack-dev-server'
     ]);
