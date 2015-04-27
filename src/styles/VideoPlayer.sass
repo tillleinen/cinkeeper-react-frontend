@@ -5,6 +5,9 @@
 	width: 100%;
 	opacity: 0;
 
+	-moz-transform: scale(.9) translateY(0);
+	-ms-transform: scale(.9) translateY(0); /* IE 9 */
+	-webkit-transform: scale(.9) translateY(0); /* Chrome, Safari, Opera */
 	transform: scale(.9) translateY(0);
 
 	-webkit-transition: opacity .4s ease-in-out, transform .4s ease-in-out;
@@ -16,6 +19,9 @@
 
 .is-showing {
 	opacity: 1;
+	-moz-transform: scale(1);
+	-ms-transform: scale(1); /* IE 9 */
+	-webkit-transform: scale(1); /* Chrome, Safari, Opera */
 	transform: scale(1);
 }
 
