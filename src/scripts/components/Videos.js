@@ -3,7 +3,6 @@
 var React = require('react/addons');
 var VideoItem = require('./VideoItem.js');
 var VideoCategoryItem = require('./VideoCategoryItem.js');
-var videoCategoryData = require('./data/video-categories.js');
 
 var _ = require('underscore');
 
@@ -16,7 +15,7 @@ var Videos = React.createClass({
 
     render: function () {
         var params = this.context.router.getCurrentParams();
-        var category = _.find(videoCategoryData, function(category) {
+        var category = _.find(this.props.videoCategories, function(category) {
             return category.slug === params.categorySlug;
         });
 

@@ -3,19 +3,11 @@
 var React = require('react/addons');
 var $ = require('jquery');
 var VideoCategoryItem = require('./VideoCategoryItem.js');
-var videoCategoryData = require('./data/video-categories.js');
 
 require('styles/VideoCategories.sass');
 
 var VideoCategories = React.createClass({
   statics: {
-    willTransitionTo: function (transition, params, query, callback) {
-      console.log(transition);
-      console.log(params);
-      console.log(query);
-      callback();
-    },
-
     willTransitionFrom: function (transition, component, callback) {
       var isRoutingToVideos = transition.path.match(/^\/film\/[a-z0-9_-]+$/);
       if(isRoutingToVideos) {
@@ -56,7 +48,7 @@ var VideoCategories = React.createClass({
     return (
       <ul className={classString}>
         {
-          videoCategoryData.map(function(category) {
+          this.props.videoCategories.map(function(category) {
             return <VideoCategoryItem key={category.slug} selectedCategory={_this.state.selectedCategory} data={category} onClick={_this.selectCategory}/>;
           })
         }
