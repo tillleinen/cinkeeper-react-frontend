@@ -7,13 +7,13 @@
 'use strict';
 
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 
   output: {
-    publicPath: '/assets/',
-    path: 'dist/assets/',
-    filename: 'main.js'
+    path: 'dist/',
+    filename: 'assets/main-[chunkhash].js'
   },
 
   debug: false,
@@ -29,7 +29,10 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.AggressiveMergingPlugin()
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'src/index-template.html'      
+    })
   ],
 
   resolve: {
