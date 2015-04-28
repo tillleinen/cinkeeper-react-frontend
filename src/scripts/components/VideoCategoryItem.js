@@ -32,8 +32,7 @@ var VideoCategoryItem = React.createClass({
       'transform': 'translate3d(0,' + translateY + '%,0)',
       '-moz-transform': 'translate3d(0,' + translateY + '%,0)',
       '-ms-transform': 'translate3d(0,' + translateY + '%,0)',
-      '-webkit-transform': 'translate3d(0,' + translateY + '%,0)',
-      'transform': 'translate3d(0,' + translateY + '%,0)'
+      '-webkit-transform': 'translate3d(0,' + translateY + '%,0)'
     };
   },
 
