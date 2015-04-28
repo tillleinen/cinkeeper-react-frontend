@@ -27,7 +27,6 @@ var VideoCategories = React.createClass({
 
   render: function () {
     var params = this.context.router.getCurrentParams();
-    var _this = this;
 
     var content;
     if(this.props.videoCategories) {
@@ -35,13 +34,13 @@ var VideoCategories = React.createClass({
         <div>
           <ul className={this.composeClassString()}>
             {
-              _this.props.videoCategories.map(function(category) {
+              this.props.videoCategories.map(function(category, index) {
                 var isSelected = (category.slug === params.categorySlug);
-                return <VideoCategoryItem key={category.slug} isSelected={isSelected} data={category} onClick={_this.selectCategory}/>;
-              })
+                return <VideoCategoryItem key={category.slug} isSelected={isSelected} data={category} index={index} onClick={this.selectCategory}/>;
+              }, this)
             }
           </ul>
-          <RouteHandler videoCategories={_this.props.videoCategories}/>
+          <RouteHandler videoCategories={this.props.videoCategories}/>
         </div>
       );
     }
