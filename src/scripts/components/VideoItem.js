@@ -4,12 +4,19 @@ var React = require('react/addons');
 var Router = require('react-router');
 var { Route, DefaultRoute, RouteHandler, Link } = Router;
 
+var $ = require('jquery');
 require('styles/VideoItem.sass');
 
 var VideoItem = React.createClass({
 
     contextTypes: {
         router: React.PropTypes.func
+    },
+
+    componentDidMount: function () {
+        setTimeout(function () {
+            $(this.getDOMNode()).addClass('is-showing');
+        }.bind(this));
     },
 
     render: function () {
