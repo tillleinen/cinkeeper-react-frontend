@@ -16,25 +16,6 @@ var VideoCategories = React.createClass({
     router: React.PropTypes.func
   },
 
-  statics: {
-    willTransitionFrom: function (transition, component, callback) {
-      VideoCategories.waitForRouteTransitionEnd(component, callback);
-    },
-
-    waitForRouteTransitionEnd: function (component, callback) {
-        var video_categories = $(component.getDOMNode()).find('.video-category');
-        if(video_categories.length > 0) {
-          video_categories
-            .one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function (e) {
-              e.stopPropagation();
-              callback();
-          });
-        } else {
-            callback();
-        }
-    }
-  },
-
   componentDidMount: function () {
     this.setCategoryHeight();
   },
