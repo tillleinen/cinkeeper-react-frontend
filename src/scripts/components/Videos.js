@@ -24,11 +24,16 @@ var Videos = React.createClass({
         },
 
         waitForRouteTransitionEnd: function (component, callback) {
-          $(component.getDOMNode()).find('.video-item')
-            .one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function (e) {
-              e.stopPropagation();
-              callback();
-          });
+            var video_items = $(component.getDOMNode()).find('.video-item');
+            if(video_items.length > 0) {
+              video_items
+                .one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function (e) {
+                  e.stopPropagation();
+                  callback();
+              });
+            } else {
+                callback();
+            }
         }
     },
 

@@ -16,20 +16,28 @@ var VideoCategoryItem = React.createClass({
     return classString;
   },
 
+  composeImageStyle: function () {
+    return {
+      backgroundImage: 'url(' + this.props.data.imageSrc + ')'
+    };
+  },
+
+  composeLink: function () {
+    return this.props.isSelected ? "categories" : "category";
+  },
+
+  composeStyle: function () {
+    var translateY = this.props.hasSelectedCategory ? 0 : this.props.index * 100;
+    return {
+      'transform': 'translate3d(0,' + translateY + '%,0)'
+    };
+  },
+
   render: function () {
-  	var imageStyle = {
-  		backgroundImage: 'url(' + this.props.data.imageSrc + ')'
-  	};
-
-    var linkTo = "category";
-    if (this.props.isSelected) {
-      linkTo = "categories";
-    }
-
     return (
-        <li className={this.composeClassString()} id={this.props.data.slug}>
-        	<Link to={linkTo} params={{categorySlug: this.props.data.slug}} onClick={this.props.onClick}>
-	        	<div className="video-category__image" style={imageStyle}></div>
+        <li className={this.composeClassString()} id={this.props.data.slug} style={this.composeStyle()}>
+        	<Link to={this.composeLink()} params={{categorySlug: this.props.data.slug}} onClick={this.props.onClick}>
+	        	<div className="video-category__image" style={this.composeImageStyle()}></div>
 	        	<div className="video-category__overlay">
 	        		<div className="video-category__overlay__caption">{this.props.data.name}</div>
               <Link className="video-category__overlay__btn-close btn-close" to="categories">Close</Link>

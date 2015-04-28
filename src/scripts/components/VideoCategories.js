@@ -4,16 +4,52 @@ var React = require('react/addons');
 var Router = require('react-router');
 var { Route, DefaultRoute, RouteHandler, Link } = Router;
 
+var $ = require('jquery');
 var _ = require('underscore');
 
-var $ = require('jquery');
 var VideoCategoryItem = require('./VideoCategoryItem.js');
 
 require('styles/VideoCategories.sass');
 
 var VideoCategories = React.createClass({
   contextTypes: {
-      router: React.PropTypes.func
+    router: React.PropTypes.func
+  },
+
+  statics: {
+    willTransitionFrom: function (transition, component, callback) {
+      VideoCategories.waitForRouteTransitionEnd(component, callback);
+    },
+
+    waitForRouteTransitionEnd: function (component, callback) {
+        var video_categories = $(component.getDOMNode()).find('.video-category');
+        if(video_categories.length > 0) {
+          video_categories
+            .one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function (e) {
+              e.stopPropagation();
+              callback();
+          });
+        } else {
+            callback();
+        }
+    }
+  },
+
+  componentDidMount: function () {
+    this.setCategoryHeight();
+  },
+
+  componentWillMount: function () {
+    $(window).on('resize', this.setCategoryHeight);
+  },
+
+  componentWillUnmount: function () {
+    $(window).off("resize", this.setCategoryHeight);
+  },
+
+  setCategoryHeight: function () {
+    var categoryHeight = $(this.getDOMNode()).find('.video-category').height();
+    this.setState({categoryHeight: categoryHeight});
   },
 
   composeClassString: function () {
@@ -25,6 +61,19 @@ var VideoCategories = React.createClass({
     return classString;
   },
 
+  composeStyle: function () {
+    var numCategories = this.props.videoCategories.length;
+    var min_height = this.hasSelectedCategory() ? this.state.categoryHeight : numCategories * this.state.categoryHeight;
+    return {
+      'height': min_height + 'px'
+    };
+  },
+
+  hasSelectedCategory: function () {
+    var params = this.context.router.getCurrentParams();
+    return !!params.categorySlug;
+  },
+
   render: function () {
     var params = this.context.router.getCurrentParams();
 
@@ -32,11 +81,11 @@ var VideoCategories = React.createClass({
     if(this.props.videoCategories) {
       content = (
         <div>
-          <ul className={this.composeClassString()}>
+          <ul className={this.composeClassString()} style={this.composeStyle()}>
             {
               this.props.videoCategories.map(function(category, index) {
                 var isSelected = (category.slug === params.categorySlug);
-                return <VideoCategoryItem key={category.slug} isSelected={isSelected} data={category} index={index} onClick={this.selectCategory}/>;
+                return <VideoCategoryItem key={category.slug} hasSelectedCategory={this.hasSelectedCategory()} isSelected={isSelected} data={category} index={index} />;
               }, this)
             }
           </ul>
