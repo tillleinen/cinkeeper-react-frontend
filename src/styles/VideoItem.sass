@@ -5,7 +5,17 @@
   width: 33.33333%;
   position: relative;
   background: black;
-  padding-top: 
+  opacity: 0;
+
+  -webkit-transition: opacity .4s ease-in-out;
+  -moz-transition: opacity .4s ease-in-out;
+  -ms-transition: opacity .4s ease-in-out;
+  -o-transition: opacity .4s ease-in-out;
+  transition: opacity .4s ease-in-out;
+}
+
+.video-item.is-showing {
+  opacity: 1;
 }
 
 .video-item:after {
