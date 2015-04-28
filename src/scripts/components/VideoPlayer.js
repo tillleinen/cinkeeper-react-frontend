@@ -19,7 +19,7 @@ var VideoPlayer = React.createClass({
         },
 
         waitForRouteTransitionEnd: function (component, callback) {
-          $(component.getDOMNode()).first()
+          $(component.getDOMNode())
             .one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function (e) {
               e.stopPropagation();
               callback();
@@ -28,10 +28,9 @@ var VideoPlayer = React.createClass({
     },
 
     componentDidMount: function () {
-        var component = this;
         setTimeout(function () {
-            $(component.getDOMNode()).addClass('is-showing');
-        });
+            $(this.getDOMNode()).addClass('is-showing');
+        }.bind(this));
     },
 
     componentWillMount: function () {
