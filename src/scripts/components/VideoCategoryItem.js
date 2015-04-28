@@ -29,6 +29,10 @@ var VideoCategoryItem = React.createClass({
   composeStyle: function () {
     var translateY = this.props.hasSelectedCategory ? 0 : this.props.index * 100;
     return {
+      'transform': 'translate3d(0,' + translateY + '%,0)',
+      '-moz-transform': 'translate3d(0,' + translateY + '%,0)',
+      '-ms-transform': 'translate3d(0,' + translateY + '%,0)',
+      '-webkit-transform': 'translate3d(0,' + translateY + '%,0)',
       'transform': 'translate3d(0,' + translateY + '%,0)'
     };
   },
