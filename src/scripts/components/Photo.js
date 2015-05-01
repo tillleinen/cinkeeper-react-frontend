@@ -16,7 +16,8 @@ require('styles/Photo.sass');
 var Photo = React.createClass({
   getInitialState: function () {
     return {
-      photos: []
+      photos: [],
+      rows: []
     };
   },
 
@@ -38,6 +39,7 @@ var Photo = React.createClass({
       this.setState({
         photos: photos
       });
+      this.calcRows();
     }
   },
 
@@ -72,11 +74,13 @@ var Photo = React.createClass({
       rows.push(this.state.photos.slice(offset, offset + length));
     }
 
-    return rows;
+    this.setState({
+      rows: rows
+    });
   },
 
   render: function () {
-    var rows = this.calcRows();
+    var rows = this.state.rows;
 
     var content = <LoadingIcon />;
 

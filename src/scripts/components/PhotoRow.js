@@ -9,7 +9,7 @@ require('styles/PhotoRow.sass');
 var PhotoRow = React.createClass({
   componentDidMount: function () {
     this.animationFrames = [];
-    this.scrollInterval = setInterval(this.handleInterval, 10);
+    this.scrollInterval = setInterval(this.handleInterval, 1);
   },
 
   componentWillUnmount: function () {
