@@ -3,17 +3,42 @@
 var _ = require('underscore');
 var React = require('react/addons');
 var PhotoRow = require('./PhotoRow.js');
-var photoData = require('./data/photos.js');
+var LoadingIcon = require('./LoadingIcon.js');
 var $ = require('jquery');
 
 var Device = require('../utils/Device.js');
 var DeviceConstants = require('../constants/DeviceConstants.js');
 
+var Request = require('../utils/Request.js');
+
 require('styles/Photo.sass');
 
 var Photo = React.createClass({
   getInitialState: function () {
-    return {rows: []};
+    return {
+      photos: []
+    };
+  },
+
+  componentDidMount: function() {
+    this.fetchData();
+  },
+
+  fetchData: function () {
+    Request
+      .get('/photos')
+      .end(this.handleResponse);
+  },
+
+  handleResponse: function (err, res) {
+    if(err) {
+      console.log(err);
+    } else if(this.isMounted()) {
+      var photos = JSON.parse(res.text).photos;
+      this.setState({
+        photos: photos
+      });
+    }
   },
 
   componentWillMount: function () {
@@ -42,23 +67,28 @@ var Photo = React.createClass({
     var rows = [];
 
     for (var i = 0; i < numRows; i++) {
-      var length = photoData.length/numRows;
+      var length = this.state.photos.length/numRows;
       var offset = i * length;
-      rows.push(photoData.slice(offset, offset + length));
+      rows.push(this.state.photos.slice(offset, offset + length));
     }
 
-    this.setState({rows: rows});
+    return rows;
   },
 
   render: function () {
-    var rows = this.state.rows;
+    var rows = this.calcRows();
+
+    var content = <LoadingIcon />;
+
+    if(this.state.photos.length > 0) {
+      content = rows.map(function (row) {
+        return <PhotoRow numRows={rows.length} photos={row}/>;
+      });
+    }
+
     return (
     	<div className="photos">
-        {
-          rows.map(function (row) {
-            return <PhotoRow numRows={rows.length} photos={row}/>;
-          })
-        }
+        { content }
 	    </div>
     );
   }
