@@ -7,6 +7,8 @@ var $ = require('jquery');
 
 require('styles/VideoPlayer.sass');
 
+var LoadingIcon = require('./LoadingIcon.js');
+
 var VideoPlayer = React.createClass({
     contextTypes: {
         router: React.PropTypes.func
@@ -47,8 +49,9 @@ var VideoPlayer = React.createClass({
 
         var iframeHeight = this.state.iframeHeight + 'px';
         return (
-            <div className="video-player" ref="videoPlayer">
-                <iframe className="video-player__iframe" src={videoSrc} width="100%" height={iframeHeight} frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen></iframe>
+            <div className="video-player" style={{height: iframeHeight}} ref="videoPlayer">
+                <LoadingIcon />
+                <iframe className="video-player__iframe" src={videoSrc} width="100%" height={iframeHeight} frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen wmode="transparent"></iframe>
                 <Link className="video-player__btn-close btn-close" to="category" params={{categorySlug: params.categorySlug}}>Close</Link>
             </div>
         );

@@ -8,6 +8,7 @@ var $ = require('jquery');
 var _ = require('underscore');
 
 var VideoCategoryItem = require('./VideoCategoryItem.js');
+var LoadingIcon = require('./LoadingIcon.js');
 
 require('styles/VideoCategories.sass');
 
@@ -58,7 +59,7 @@ var VideoCategories = React.createClass({
   render: function () {
     var params = this.context.router.getCurrentParams();
 
-    var content;
+    var content = <LoadingIcon />;
     if(this.props.videoCategories) {
       content = (
         <div>
