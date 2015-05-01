@@ -8,8 +8,18 @@ require('styles/LoadingIcon.sass');
 
 var LoadingIcon = React.createClass({
 
+	getInitialState: function () {
+		return {
+			height: 0
+		};
+	},
+
 	componentWillMount: function () {
-	    $(window).on('resize', this.setHeight).trigger('resize');
+	    $(window).on('resize', this.setHeight);
+	},
+
+	componentDidMount: function () {
+	    this.setHeight();
 	},
 
 	componentWillUnmount: function () {
