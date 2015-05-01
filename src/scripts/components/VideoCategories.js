@@ -56,6 +56,10 @@ var VideoCategories = React.createClass({
     return !!params.categorySlug;
   },
 
+  categoryItemDidMount: function () {
+    this.setCategoryHeight();
+  },
+
   render: function () {
     var params = this.context.router.getCurrentParams();
 
@@ -67,7 +71,7 @@ var VideoCategories = React.createClass({
             {
               this.props.videoCategories.map(function(category, index) {
                 var isSelected = (category.slug === params.categorySlug);
-                return <VideoCategoryItem key={category.slug} hasSelectedCategory={this.hasSelectedCategory()} isSelected={isSelected} data={category} index={index} />;
+                return <VideoCategoryItem key={category.slug} hasSelectedCategory={this.hasSelectedCategory()} isSelected={isSelected} data={category} index={index} onMount={this.categoryItemDidMount} />;
               }, this)
             }
           </ul>

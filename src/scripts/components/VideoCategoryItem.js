@@ -4,9 +4,15 @@ var React = require('react/addons');
 var Router = require('react-router');
 var { Route, DefaultRoute, RouteHandler, Link } = Router;
 
+var $ = require('jquery');
+
 require('styles/VideoCategoryItem.sass');
 
 var VideoCategoryItem = React.createClass({
+
+  componentDidMount: function () {
+    this.props.onMount();
+  },
 
   composeClassString: function () {
     var classString = 'video-category';
