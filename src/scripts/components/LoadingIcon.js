@@ -2,16 +2,39 @@
 
 var React = require('react/addons');
 
+var $ = require('jquery');
+
 require('styles/LoadingIcon.sass');
 
 var LoadingIcon = React.createClass({
-  render: function () {
-    return (
-        <div className="loading-icon">
-          <img className="loading-icon__image" src="../../images/loading_icon.png" />
-        </div>
-      );
-  }
+
+	componentWillMount: function () {
+	    $(window).on('resize', this.setHeight).trigger('resize');
+	},
+
+	componentWillUnmount: function () {
+	    $(window).off("resize", this.setHeight);
+	},
+
+    setHeight: function() {
+        var bodyHeight = $(window).innerHeight();
+        var headerHeight = $('header').outerHeight();
+        var footerHeight = $('footer').outerHeight();
+        var height = this.calcAvailableHeight(bodyHeight, headerHeight, footerHeight);
+        this.setState({height: height});
+    },
+
+    calcAvailableHeight: function (bodyHeight, headerHeight, footerHeight) {
+        return bodyHeight - (headerHeight + footerHeight);
+    },
+
+	render: function () {
+		return (
+		    <div className="loading-icon" style={{height: this.state.height + 'px'}}>
+		    	<img className="loading-icon__image" src="../../images/loading_icon.png" />
+		    </div>
+		);
+	}
 });
 
 module.exports = LoadingIcon; 
