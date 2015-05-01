@@ -45,7 +45,7 @@ var VideoPlayer = React.createClass({
 
     render: function () {
         var params = this.context.router.getCurrentParams();
-        var videoSrc = '//player.vimeo.com/video/' + params.vimeoId + '?byline=0&title=0&portrait=0';
+        var videoSrc = '//player.vimeo.com/video/' + params.vimeoId + '?byline=0&title=0&portrait=0&wmode=transparent';
 
         var iframeHeight = this.state.iframeHeight + 'px';
         return (
