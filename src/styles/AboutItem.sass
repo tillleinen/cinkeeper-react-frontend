@@ -1,0 +1,91 @@
+
+.about-overview__item {
+	position: relative;
+	text-align: center;
+
+	&.we {
+		height: 50%;
+	}
+
+	&.clients {
+		height: 50%;
+	}
+
+	&.contact {
+		height: 100%;
+	}
+
+	&.imprint {
+		height: 50%;
+	}
+
+	&.behind-the-scenes {
+		height: 50%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.about-overview__item {
+		min-height: 200px;
+		width: 100%;
+
+		&.we, &.clients, &.contact, &.imprint, &.behind-the-scenes {
+			height: auto;
+		}
+	}
+
+}
+
+.about-overview__item a {
+	display: block;
+	width: 100%;
+	height: 100%;
+
+	color: white;
+	text-decoration: none;
+}
+
+.about-overview__item__image {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;
+	opacity: .8;
+
+	transform: translate3d(0,0,0);
+	-webkit-transform: translate3d(0,0,0);
+
+	-webkit-transition: opacity .25s ease-in-out;
+	-moz-transition: opacity .25s ease-in-out;
+	-ms-transition: opacity .25s ease-in-out;
+	-o-transition: opacity .25s ease-in-out;
+	transition: opacity .25s ease-in-out;
+
+	background-size: cover;
+	background-position: center;
+}
+
+.about-overview__item:hover .about-overview__item__image {
+  opacity: 1;
+}
+
+.about-overview__item__overlay {
+  color: white;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.about-overview__item__overlay__caption {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  padding: 0 1em;
+  margin-top: -19px;
+
+  font-weight: 900;
+  font-size: 2em;
+  text-transform: uppercase;
+}
