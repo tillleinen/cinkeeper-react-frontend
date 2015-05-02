@@ -38,23 +38,27 @@ var Videos = React.createClass({
     },
 
     render: function () {
-        var params = this.context.router.getCurrentParams();
-        var category = _.find(this.props.videoCategories, function(category) {
-            return category.slug === params.categorySlug;
-        });
-
+        var category = this.getCategory();
         return (
             <div className="videos">
                 <ul className="video-list">
                     {
                         category.videos.map(function (video, index) {
-                            return <VideoItem key={video.id} vimeoId={video.vimeo_id} imageSrc={video.imageSrc} caption={video.name} />;
+                            return <VideoItem key={video.id} videoSlug={video.slug} imageSrc={video.imageSrc} caption={video.name} />;
                         })
                     }
                 </ul>
-                <RouteHandler/>
+                <RouteHandler videos={category.videos}/>
             </div>
         );
+    },
+
+    getCategory: function () {
+        var params = this.context.router.getCurrentParams();
+        var category = _.find(this.props.videoCategories, function(category) {
+            return category.slug === params.categorySlug;
+        });
+        return category;
     }
 });
 

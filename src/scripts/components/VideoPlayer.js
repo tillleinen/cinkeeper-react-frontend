@@ -3,7 +3,9 @@
 var React = require('react/addons');
 var Router = require('react-router');
 var { Route, DefaultRoute, RouteHandler, Link } = Router;
+
 var $ = require('jquery');
+var _ = require('underscore');
 
 require('styles/VideoPlayer.sass');
 
@@ -44,8 +46,9 @@ var VideoPlayer = React.createClass({
     },
 
     render: function () {
+        var vimeoId = this.getVimeoId();
         var params = this.context.router.getCurrentParams();
-        var videoSrc = '//player.vimeo.com/video/' + params.vimeoId + '?byline=0&title=0&portrait=0&wmode=transparent';
+        var videoSrc = '//player.vimeo.com/video/' + vimeoId + '?byline=0&title=0&portrait=0&wmode=transparent';
 
         var iframeHeight = this.state.iframeHeight + 'px';
         return (
@@ -55,6 +58,14 @@ var VideoPlayer = React.createClass({
                 <Link className="video-player__btn-close btn-close" to="category" params={{categorySlug: params.categorySlug}}>Close</Link>
             </div>
         );
+    },
+
+    getVimeoId: function () {
+        var params = this.context.router.getCurrentParams();
+        var video = _.find(this.props.videos, function (video) {
+            return params.videoSlug === video.slug;
+        });
+        return video.vimeo_id;
     },
 
     setIframeHeight: function() {

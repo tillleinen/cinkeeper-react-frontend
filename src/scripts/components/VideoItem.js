@@ -27,7 +27,7 @@ var VideoItem = React.createClass({
         var params = this.context.router.getCurrentParams();
         return (
             <li className="video-item">
-                <Link to="video" params={{vimeoId: this.props.vimeoId, categorySlug: params.categorySlug}}>
+                <Link to="video" params={{videoSlug: this.props.videoSlug, categorySlug: params.categorySlug}}>
                     <div className="video-item__image" style={imageStyle}></div>
                     <div className="video-item__overlay">
                         <div className="video-item__overlay__caption">

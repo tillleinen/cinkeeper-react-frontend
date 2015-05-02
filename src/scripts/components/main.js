@@ -21,7 +21,7 @@ var Routes = (
         <Route name="film" handler={Film}>
             <Route name="categories" path="/film" handler={VideoCategories}>
                 <Route name="category" path=":categorySlug" handler={Videos}>
-                    <Route name="video" path=":categorySlug/:vimeoId" handler={VideoPlayer} />
+                    <Route name="video" path=":videoSlug" handler={VideoPlayer} />
                 </Route>
             </Route>
         </Route>
