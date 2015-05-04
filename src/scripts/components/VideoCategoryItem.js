@@ -49,7 +49,7 @@ var VideoCategoryItem = React.createClass({
 	        	<div className="video-category__image" style={this.composeImageStyle()}></div>
 	        	<div className="video-category__overlay">
 	        		<div className="video-category__overlay__caption">{this.props.data.name}</div>
-              <Link className="video-category__overlay__btn-close btn-close" to="categories">Close</Link>
+              <div className="video-category__overlay__btn-close btn-close" to="categories">Close</div>
 	        	</div>
 	        </Link>
         </li>
