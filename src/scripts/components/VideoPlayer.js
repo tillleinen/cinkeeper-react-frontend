@@ -20,6 +20,7 @@ var VideoPlayer = React.createClass({
         willTransitionFrom: function (transition, component, callback) {
           VideoPlayer.waitForRouteTransitionEnd(component, callback);
           $(component.getDOMNode()).removeClass('is-showing');
+          $('.content').removeClass('is-fixed');
         },
 
         waitForRouteTransitionEnd: function (component, callback) {
@@ -34,6 +35,7 @@ var VideoPlayer = React.createClass({
     componentDidMount: function () {
         setTimeout(function () {
             $(this.getDOMNode()).addClass('is-showing');
+            $('.content').addClass('is-fixed');
         }.bind(this));
     },
 

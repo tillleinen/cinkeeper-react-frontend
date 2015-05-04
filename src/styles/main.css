@@ -38,6 +38,10 @@ body {
   height: 100%;
 }
 
+.content.is-fixed {
+  overflow: hidden;
+}
+
 .btn-close {
   text-indent: -9999px;
   width: 30px;
