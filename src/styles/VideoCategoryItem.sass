@@ -21,20 +21,18 @@
 	transform: translate3d(0,0,0);
 	-webkit-transform: translate3d(0,0,0);
 
-	-webkit-transition: transform .4s ease-in-out, z-index .4s step-end;
-	-moz-transition: transform .4s ease-in-out, z-index .4s step-end;
-	-ms-transition: transform .4s ease-in-out, z-index .4s step-end;
-	-o-transition: transform .4s ease-in-out, z-index .4s step-end;
+	-webkit-transition: -webkit-transform .4s ease-in-out, z-index .4s step-end;
+	-moz-transition: -moz-transform .4s ease-in-out, z-index .4s step-end;
+	-o-transition: -o-transform .4s ease-in-out, z-index .4s step-end;
 	transition: transform .4s ease-in-out, z-index .4s step-end;
 }
 
 .video-category--selected {
 	z-index: 100;
 
-	-webkit-transition: transform .4s ease-in-out;
-	-moz-transition: transform .4s ease-in-out;
-	-ms-transition: transform .4s ease-in-out;
-	-o-transition: transform .4s ease-in-out;
+	-webkit-transition: -webkit-transform .4s ease-in-out;
+	-moz-transition: -moz-transform .4s ease-in-out;
+	-o-transition: -o-transform .4s ease-in-out;
 	transition: transform .4s ease-in-out;
     // height: 75px;
     // line-height: 75px;
@@ -78,7 +76,6 @@
 
 	-webkit-transition: opacity .25s ease-in-out;
 	-moz-transition: opacity .25s ease-in-out;
-	-ms-transition: opacity .25s ease-in-out;
 	-o-transition: opacity .25s ease-in-out;
 	transition: opacity .25s ease-in-out;
 
@@ -118,7 +115,6 @@
 
 	-webkit-transition: opacity .25s ease-in-out;
 	-moz-transition: opacity .25s ease-in-out;
-	-ms-transition: opacity .25s ease-in-out;
 	-o-transition: opacity .25s ease-in-out;
 	transition: opacity .25s ease-in-out;
 }
@@ -144,7 +140,6 @@
 
 	-webkit-transition-delay: .5s;
 	-moz-transition-delay: .5s;
-	-ms-transition-delay: .5s;
 	-o-transition-delay: .5s;
 	transition-delay: .5s;
 }

@@ -18,8 +18,8 @@ var VideoPlayer = React.createClass({
 
     statics: {
         willTransitionFrom: function (transition, component, callback) {
-          $(component.getDOMNode()).removeClass('is-showing');
           VideoPlayer.waitForRouteTransitionEnd(component, callback);
+          $(component.getDOMNode()).removeClass('is-showing');
         },
 
         waitForRouteTransitionEnd: function (component, callback) {
