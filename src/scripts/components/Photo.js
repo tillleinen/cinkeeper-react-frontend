@@ -52,31 +52,48 @@ var Photo = React.createClass({
   },
   
   calcRows: function () {
-    var numRows;
-    switch(Device.detect()) {
-      case DeviceConstants.DESKTOP:
-        numRows = 3;
-        break;
-      case DeviceConstants.TABLET:
-        numRows = 2;
-        break;
-      case DeviceConstants.MOBILE:
-        numRows = 1;
-        break;
-      default:
-    }
+    var numRows = this.calcNumRows();
+    var totalHeight = this.calcTotalPhotoHeight(numRows);
 
-    var rows = [];
+    var rows = _.times(numRows, function() { return []; });
+    var heightOfProcessedPhotos = 0;
+    for (var i = 0; i < this.state.photos.length; i++) {
+      var photo = this.state.photos[i];
+      heightOfProcessedPhotos += this.calcPhotoHeight(photo);
 
-    for (var i = 0; i < numRows; i++) {
-      var length = this.state.photos.length/numRows;
-      var offset = i * length;
-      rows.push(this.state.photos.slice(offset, offset + length));
+      var rowIndex = _.min([Math.floor((heightOfProcessedPhotos / totalHeight) * numRows), numRows - 1]);
+      rows[rowIndex].push(photo);
     }
 
     this.setState({
       rows: rows
     });
+  },
+
+  calcNumRows: function () {
+    switch(Device.detect()) {
+      case DeviceConstants.DESKTOP:
+        return 3;
+        break;
+      case DeviceConstants.TABLET:
+        return 2;
+        break;
+      case DeviceConstants.MOBILE:
+        return 1;
+        break;
+    }
+  },
+
+  calcTotalPhotoHeight: function (numRows) {
+    return _.reduce(this.state.photos, function (sum, photo) {
+      return sum + this.calcPhotoHeight(photo);
+    }.bind(this), 0);
+  },
+
+  calcPhotoHeight: function (photo) {
+    var availableWidth = $(window).width() / this.calcNumRows();
+    var photoScale = availableWidth / photo.width;
+    return photo.height * photoScale;
   },
 
   render: function () {
