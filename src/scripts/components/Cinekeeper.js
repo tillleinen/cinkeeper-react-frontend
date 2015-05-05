@@ -34,8 +34,6 @@ var Cinekeeper = React.createClass({
       var bodyHeight = $(window).innerHeight();
       var headerHeight = $('header').outerHeight();
       var footerHeight = $('footer').outerHeight();
-      console.log(headerHeight);
-      console.log(footerHeight);
       var height = this.calcAvailableHeight(bodyHeight, headerHeight, footerHeight);
       this.setState({height: height});
   },
