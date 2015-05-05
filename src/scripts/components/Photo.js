@@ -74,13 +74,10 @@ var Photo = React.createClass({
     switch(Device.detect()) {
       case DeviceConstants.DESKTOP:
         return 3;
-        break;
       case DeviceConstants.TABLET:
         return 2;
-        break;
       case DeviceConstants.MOBILE:
         return 1;
-        break;
     }
   },
 
