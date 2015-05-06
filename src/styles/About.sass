@@ -1,6 +1,7 @@
 
 .about-container {
 	height: 100%;
+	position: relative;
 }
 
 .about-overview {
@@ -33,4 +34,18 @@
 		width: 100%;
 		height: auto;
 	}
+}
+
+.about-subpage {
+	background: black;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	min-height: 100%;
+
+	-webkit-transition: opacity .25s ease-in-out;
+	-moz-transition: opacity .25s ease-in-out;
+	-ms-transition: opacity .25s ease-in-out;
+	-o-transition: opacity .25s ease-in-out;
+	transition: opacity .25s ease-in-out;
 }

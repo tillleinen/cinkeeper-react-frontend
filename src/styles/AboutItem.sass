@@ -3,23 +3,23 @@
 	position: relative;
 	text-align: center;
 
-	&.we {
-		height: 50%;
-	}
-
 	&.clients {
 		height: 50%;
 	}
 
-	&.contact {
-		height: 100%;
-	}
-
-	&.imprint {
+	&.behind-the-scenes {
 		height: 50%;
 	}
 
-	&.behind-the-scenes {
+	&.we {
+		height: 100%;
+	}
+
+	&.contact {
+		height: 50%;
+	}
+
+	&.imprint {
 		height: 50%;
 	}
 }
@@ -31,6 +31,10 @@
 
 		&.we, &.clients, &.contact, &.imprint, &.behind-the-scenes {
 			height: auto;
+		}
+
+		&.has-no-link {
+			display: none;
 		}
 	}
 
@@ -63,6 +67,10 @@
 
 	background-size: cover;
 	background-position: center;
+}
+
+.has-no-link .about-overview__item__image {
+  opacity: 1;
 }
 
 .about-overview__item:hover .about-overview__item__image {

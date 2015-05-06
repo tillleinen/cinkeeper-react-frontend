@@ -8,6 +8,10 @@ var About = require('./About.js');
 var VideoCategories = require('./VideoCategories.js');
 var Videos = require('./Videos.js');
 var VideoPlayer = require('./VideoPlayer.js');
+var Clients = require('./Clients.js');
+var BehindTheScenes = require('./BehindTheScenes.js');
+var Contact = require('./Contact.js');
+var Imprint = require('./Imprint.js');
 
 var React = require('react');
 var Router = require('react-router');
@@ -26,7 +30,12 @@ var Routes = (
             </Route>
         </Route>
         <Route name="photo" path="/foto" handler={Photo} />
-        <Route name="about" handler={About} />
+        <Route name="about" handler={About}>
+            <Route name="clients" path="clients" handler={Clients} />
+            <Route name="behindthescenes" path="behindthescenes" handler={BehindTheScenes} />
+            <Route name="contact" path="contact" handler={Contact} />
+            <Route name="imprint" path="imprint" handler={Imprint} />
+        </Route>
     </Route>
 );
 
