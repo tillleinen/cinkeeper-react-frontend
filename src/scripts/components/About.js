@@ -9,19 +9,7 @@ var AboutItem = require('./AboutItem');
 require('styles/About.sass');
 
 var About = React.createClass({
-  contextTypes: {
-    router: React.PropTypes.func
-  },
-
-  isSubpage: function (argument) {
-    var path = this.context.router.getCurrentPath();
-    var isSubpage = !!path.split('/')[2];
-    return isSubpage;
-  },
-
   render: function () {
-    var subpage = (this.isSubpage() ? <div className="about-subpage"><RouteHandler/></div>:'');
-
     return (
         <div className="about-container">
           <ul className="about-overview">
@@ -37,7 +25,6 @@ var About = React.createClass({
               <AboutItem linkTo="imprint" className="imprint" text="Impressum" imageSrc="../../images/IMG_1413.jpg" />
           	</div>
           </ul>
-          {subpage}
         </div>
       );
   }
