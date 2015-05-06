@@ -35,22 +35,12 @@
 
 .video-player__btn-close {
 	position: absolute;
-	top: 25px;
-	right: 20px;	
+	top: 16px;
+	right: 16px;	
 	width: 24px;
 	height: 24px;
-}
 
-@media screen and (max-width: 768px) {
-	.video-player__btn-close {
-		width: 20px;
-		height: 20px;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.video-player__btn-close {
-		width: 14px;
-		height: 14px;
+	&:before, &:after {
+		background-color: #b3b3b3;
 	}
 }
