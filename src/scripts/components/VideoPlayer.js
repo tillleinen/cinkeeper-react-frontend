@@ -11,6 +11,8 @@ require('styles/VideoPlayer.sass');
 
 var LoadingIcon = require('./LoadingIcon.js');
 
+var IDLE_TIMEOUT = 2000;
+
 var VideoPlayer = React.createClass({
     contextTypes: {
         router: React.PropTypes.func
@@ -37,6 +39,7 @@ var VideoPlayer = React.createClass({
             $(this.getDOMNode()).addClass('is-showing');
             $('body').addClass('is-fixed');
         }.bind(this));
+        this.startIdleTimeout();
     },
 
     componentWillMount: function () {
@@ -45,6 +48,27 @@ var VideoPlayer = React.createClass({
 
     componentWillUnmount: function () {
         $(window).off("resize", this.setIframeHeight);
+        this.stopIdleTimeout();
+    },
+
+    startIdleTimeout: function () {
+        $(this.getDOMNode()).on('mousemove', this.resetTimeout);
+        this.resetTimeout();
+    },
+
+    stopIdleTimeout: function () {
+        $(this.getDOMNode()).on('mousemove', this.resetTimeout);
+        clearTimeout(this.idleTimeout);
+    },
+
+    resetTimeout: function () {
+        $(this.getDOMNode()).find('.video-player__btn-close').removeClass('is-idle');
+        clearTimeout(this.idleTimeout);
+        this.idleTimeout = setTimeout(this.hideCloseButton, IDLE_TIMEOUT);
+    },
+
+    hideCloseButton: function () {
+        $(this.getDOMNode()).find('.video-player__btn-close').addClass('is-idle');
     },
 
     render: function () {
