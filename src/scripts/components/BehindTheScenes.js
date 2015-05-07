@@ -22,7 +22,7 @@ var BehindTheScenes = React.createClass({
 	},
 
 	componentWillMount: function () {
-		$(window).on('resize', this.handleResize).trigger('resize');
+		$(window).on('resize', this.handleResize);
 	},
 
 	componentWillUnmount: function () {
