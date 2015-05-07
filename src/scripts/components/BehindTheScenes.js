@@ -16,7 +16,6 @@ var BehindTheScenes = React.createClass({
 	getInitialState: function () {
 		return {
 			containerHeight: 0,
-			width: 0,
 			photos: []
 		};
 	},
@@ -53,12 +52,11 @@ var BehindTheScenes = React.createClass({
 
 	handleResize: function () {
 		this.setState({
-			width: this.calcTotalPhotoWidth(),
-			containerHeight: $(this.getDOMNode()).height()
+			this.containerHeight: $(this.getDOMNode()).height()
 		});
 	},
 
-  calcTotalPhotoWidth: function (numRows) {
+  calcTotalPhotoWidth: function () {
     return _.reduce(this.state.photos, function (sum, photo) {
       return sum + this.calcPhotoWidth(photo);
     }.bind(this), 0);
@@ -73,7 +71,7 @@ var BehindTheScenes = React.createClass({
   render: function () {
     return (
       <div className="behindthescenes-gallery">
-      	<ul className="behindthescenes-photo-list" style={{ 'width': this.state.width + 'px' }}>
+      	<ul className="behindthescenes-photo-list" style={{ 'width': this.calcTotalPhotoWidth() + 'px' }}>
       		{
       			this.state.photos.map(function (photo) {
       				return <BehindTheScenesItem imageSrc={photo.image.image.url} width={this.calcPhotoWidth(photo)} />;	  			
