@@ -24,7 +24,7 @@ var VideoCategoryItem = React.createClass({
 
   composeImageStyle: function () {
     return {
-      backgroundImage: 'url(' + this.props.data.imageSrc + ')'
+      backgroundImage: 'url(' + this.props.data.image.image.medium.url + ')'
     };
   },
 

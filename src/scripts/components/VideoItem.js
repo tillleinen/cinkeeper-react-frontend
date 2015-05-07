@@ -19,19 +19,21 @@ var VideoItem = React.createClass({
         }.bind(this));
     },
 
-    render: function () {
-        var imageStyle = {
-            backgroundImage: 'url(' + this.props.imageSrc + ')'
+    composeStyle: function () {
+        return {
+            backgroundImage: 'url(' + this.props.video.image.image.medium.url + ')'
         };
+    },
 
+    render: function () {
         var params = this.context.router.getCurrentParams();
         return (
             <li className="video-item">
-                <Link to="video" params={{videoSlug: this.props.videoSlug, categorySlug: params.categorySlug}}>
-                    <div className="video-item__image" style={imageStyle}></div>
+                <Link to="video" params={{videoSlug: this.props.video.slug, categorySlug: params.categorySlug}}>
+                    <div className="video-item__image" style={this.composeStyle()}></div>
                     <div className="video-item__overlay">
                         <div className="video-item__overlay__caption">
-                            {this.props.caption}
+                            {this.props.video.name}
                         </div>
                     </div>
                 </Link>

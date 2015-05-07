@@ -43,7 +43,7 @@ var PhotoRow = React.createClass({
         <ul className="photo-list" ref="row" style={{width: 100 / this.props.numRows + '%'}}>
           {
             this.props.photos.map(function (photo) {
-              return  <PhotoItem key={photo.id} imageSrc={photo.image.image.url} />;
+              return  <PhotoItem key={photo.id} photo={photo} />;
             })
           }
         </ul>

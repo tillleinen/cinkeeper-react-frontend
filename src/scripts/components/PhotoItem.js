@@ -11,7 +11,7 @@ var PhotoItem = React.createClass({
     return (
       <li className="photo-item">
       	<Link to="photo">
-      		<img src={this.props.imageSrc} />
+      		<img src={this.props.photo.image.image.medium.url} />
       	</Link>
       </li>
     );

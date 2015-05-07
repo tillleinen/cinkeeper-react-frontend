@@ -44,7 +44,7 @@ var Videos = React.createClass({
                 <ul className="video-list">
                     {
                         category.videos.map(function (video, index) {
-                            return <VideoItem key={video.id} videoSlug={video.slug} imageSrc={video.imageSrc} caption={video.name} />;
+                            return <VideoItem key={video.id} video={video} />;
                         })
                     }
                 </ul>
