@@ -74,7 +74,7 @@ var BehindTheScenes = React.createClass({
       	<ul className="behindthescenes-photo-list" style={{ 'width': this.calcTotalPhotoWidth() + 'px' }}>
       		{
       			this.state.photos.map(function (photo) {
-      				return <BehindTheScenesItem imageSrc={photo.image.image.url} width={this.calcPhotoWidth(photo)} />;	  			
+      				return <BehindTheScenesItem key={photo.id} imageSrc={photo.image.image.url} width={this.calcPhotoWidth(photo)} />;	  			
       			}.bind(this))
       		}
       	</ul>
