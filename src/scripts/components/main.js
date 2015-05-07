@@ -29,12 +29,12 @@ var Routes = (
                 </Route>
             </Route>
         </Route>
-        <Route name="photo" path="/foto" handler={Photo} />
+        <Route name="photo" path="photo" handler={Photo} />
         <Route name="about" handler={About} />
-        <Route name="clients" path="/about/clients" handler={Clients} />
-        <Route name="behindthescenes" path="/about/behindthescenes" handler={BehindTheScenes} />
-        <Route name="contact" path="/about/contact" handler={Contact} />
-        <Route name="imprint" path="/about/imprint" handler={Imprint} />
+        <Route name="clients" path="about/clients" handler={Clients} />
+        <Route name="behindthescenes" path="about/behindthescenes" handler={BehindTheScenes} />
+        <Route name="contact" path="about/contact" handler={Contact} />
+        <Route name="imprint" path="about/imprint" handler={Imprint} />
     </Route>
 );
 
