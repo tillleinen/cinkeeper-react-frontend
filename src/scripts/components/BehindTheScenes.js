@@ -52,7 +52,7 @@ var BehindTheScenes = React.createClass({
 
 	handleResize: function () {
 		this.setState({
-			this.containerHeight: $(this.getDOMNode()).height()
+			containerHeight: $(this.getDOMNode()).height()
 		});
 	},
 
