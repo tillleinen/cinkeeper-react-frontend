@@ -3,17 +3,36 @@
   background: #fff;
   position: fixed;
   width: 100%;
-  height: 54px;
+  height: 61px;
   text-align: center;
   min-width: 320px;
   z-index: 1000;
   
   bottom: 0;
-  padding: 10px 0 10px;
+  padding: 5px 0 5px;
   box-sizing: border-box;
 }
 
 .footer__social-buttons a {
   display: inline-block;
   margin: 0 30px;
+
+  img {
+    display: block;
+  }
+}
+
+.footer_imprint {
+  font-size: .75em;
+  
+  a {
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #b3b3b3;
+
+    &.active {
+      color: black;
+    }
+  }
 }
