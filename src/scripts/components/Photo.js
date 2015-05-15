@@ -1,9 +1,10 @@
 'use strict';
 
-var _ = require('underscore');
 var React = require('react/addons');
 var PhotoRow = require('./PhotoRow.js');
 var LoadingIcon = require('./LoadingIcon.js');
+
+var _ = require('underscore');
 var $ = require('jquery');
 
 var Device = require('../utils/Device.js');
@@ -17,7 +18,8 @@ var Photo = React.createClass({
   getInitialState: function () {
     return {
       photos: [],
-      rows: []
+      rows: [],
+      zoomedImageID: null
     };
   },
 
@@ -93,6 +95,12 @@ var Photo = React.createClass({
     return photo.height * photoScale;
   },
 
+  zoomImage: function (imageID) {
+    this.setState({
+      zoomedImageID: imageID
+    });
+  },
+
   render: function () {
     var rows = this.state.rows;
 
@@ -100,8 +108,11 @@ var Photo = React.createClass({
 
     if(this.state.photos.length > 0) {
       content = rows.map(function (row) {
-        return <PhotoRow numRows={rows.length} photos={row}/>;
-      });
+        var hasZoomedImage = !!_.find(row, function (photo) {
+          return photo.id === this.state.zoomedImageID;
+        }.bind(this));
+        return <PhotoRow hasZoomedImage={hasZoomedImage} numRows={rows.length} photos={row} zoomedImageID={this.state.zoomedImageID} onSelect={this.zoomImage} />;
+      }.bind(this));
     }
 
     return (

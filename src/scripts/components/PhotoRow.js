@@ -43,8 +43,9 @@ var PhotoRow = React.createClass({
         <ul className="photo-list" ref="row" style={{width: 100 / this.props.numRows + '%'}}>
           {
             this.props.photos.map(function (photo) {
-              return  <PhotoItem key={photo.id} photo={photo} />;
-            })
+              var isZoomed = (photo.id === this.props.zoomedImageID);
+              return  <PhotoItem key={photo.id} photo={photo} isZoomed={isZoomed} onSelect={this.props.onSelect} />;
+            }.bind(this))
           }
         </ul>
       );
