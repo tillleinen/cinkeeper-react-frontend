@@ -79,7 +79,7 @@ var BehindTheScenes = React.createClass({
       				return <BehindTheScenesItem key={photo.id} imageSrc={photo.image.image.medium.url} width={this.calcPhotoWidth(photo)} />;	  			
       			}.bind(this))
       		}
-      	</ul>
+      	</ul>;
   	}
 
     return (
