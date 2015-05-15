@@ -1,0 +1,71 @@
+.clients {
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+.clients__bg-image {
+	z-index: -1;
+	opacity: .5;
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-image: image-url('../../images/bookeh-bg.jpg');
+	background-size: cover;	
+}
+
+.clients-overlay {
+	padding: 30px 50px 30px;
+	margin: 0 auto;
+	max-width: 600px;
+	text-align: center;
+}
+
+.clients-overlay__headline {
+	color: white;
+	text-transform: uppercase;
+	margin-bottom: 40px;
+}
+
+.clients-list {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	z-index: 500;
+}
+
+.clients-list__item {
+	display: inline-block;
+	margin: 0 75px 30px 0;
+	width: 150px;
+	height: 150px;
+	line-height: 150px;
+	background: center center no-repeat;
+	background-size: contain;
+
+	&:nth-child(3n+3), &:last-child {
+		margin-right: 0;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.clients-list__headline {
+		margin-bottom: 70px;
+	}
+
+	.clients-list__item {
+		display: block;
+		margin: 0 auto;
+
+		&:nth-child(3n+3), &:last-child {
+			margin: 0 auto;
+		}
+	}
+}
+
+.clients-list__item__image {
+	max-width: 150px;
+	max-height: 150px;
+}
+
