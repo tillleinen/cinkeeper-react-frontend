@@ -12,21 +12,15 @@ var Header = React.createClass({
   render: function () {
     return (
       <header className="header">
-        <Link className="header__logo" to="home">
-          Cinekeeper
-        </Link>
         <nav className="nav">
-        <ul className="nav__list">
-          <li className="nav__list__item nav__list__item--left">
-            <Link to="film">Film</Link>
-          </li>
-          <li className="nav__list__item">
-            <Link to="about">About us</Link>
-          </li>
-          <li className="nav__list__item nav__list__item--right">
-            <Link to="photo">Photo</Link>
-          </li>
-        </ul>
+          <ul className="nav__list">
+            <li className="nav__list__item nav__list__item--left">
+              <Link to="film">Film</Link>
+            </li>
+            <li className="nav__list__item nav__list__item--right">
+              <Link to="photo">Photo</Link>
+            </li>
+          </ul>
         </nav>
       </header>
     );

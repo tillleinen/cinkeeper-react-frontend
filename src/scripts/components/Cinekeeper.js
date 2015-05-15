@@ -46,6 +46,9 @@ var Cinekeeper = React.createClass({
     return (
       <div className="container">
         <Header />
+        <Link className="logo" to="home">
+          Cinekeeper
+        </Link>
         <div className="content" style={{'min-height': this.state.height + 'px'}}>
           <RouteHandler/>
         </div>
