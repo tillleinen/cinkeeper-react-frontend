@@ -41,7 +41,7 @@ var LoadingIcon = React.createClass({
 	render: function () {
 		return (
 		    <div className="loading-icon" style={{height: this.state.height + 'px'}}>
-		    	<img className="loading-icon__image" src="../../images/loading_icon.png" />
+		    	<img className="loading-icon__image" src="../../images/loading.gif" />
 		    </div>
 		);
 	}

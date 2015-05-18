@@ -3,6 +3,7 @@
 var React = require('react/addons');
 
 var BehindTheScenesItem = require('./BehindTheScenesItem.js');
+var LoadingIcon = require('./LoadingIcon.js');
 
 var Request = require('../utils/Request.js');
 
@@ -69,15 +70,21 @@ var BehindTheScenes = React.createClass({
   },
 
   render: function () {
-    return (
-      <div className="behindthescenes-gallery">
-      	<ul className="behindthescenes-photo-list" style={{ 'width': this.calcTotalPhotoWidth() + 'px' }}>
+
+  	var content = <LoadingIcon/>;
+  	if(this.state.photos.length > 0) {
+  		content = <ul className="behindthescenes-photo-list" style={{ 'width': this.calcTotalPhotoWidth() + 'px' }}>
       		{
       			this.state.photos.map(function (photo) {
       				return <BehindTheScenesItem key={photo.id} imageSrc={photo.image.image.medium.url} width={this.calcPhotoWidth(photo)} />;	  			
       			}.bind(this))
       		}
-      	</ul>
+      	</ul>;
+  	}
+
+    return (
+      <div className="behindthescenes-gallery">
+      	{content}
       </div>
     );
   }

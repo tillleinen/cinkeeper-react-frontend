@@ -38,7 +38,7 @@ var Footer = React.createClass({
         </li>
       </ul>
       <div className="footer_imprint">
-        <Link to="imprint">Imprint</Link>
+        <Link to="imprint">Impressum</Link>
       </div>
     </footer>
     );

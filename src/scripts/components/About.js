@@ -22,7 +22,7 @@ var About = React.createClass({
             </div>
             <div className="about-overview__right">
               <AboutItem linkTo="contact" className="contact" text="Contact" imageSrc="../../images/DSC_0162.jpg" />
-              <AboutItem linkTo="imprint" className="imprint" text="Imprint" imageSrc="../../images/IMG_8165.jpg" />
+              <AboutItem linkTo="imprint" className="imprint" text="Impressum" imageSrc="../../images/IMG_8165.jpg" />
           	</div>
           </ul>
         </div>
