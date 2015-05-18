@@ -1,55 +1,4 @@
 
-@-webkit-keyframes loading  {
-    0% { -webkit-transform: rotate(0); }
-    20% { -webkit-transform: rotate(0); }
-    50% { -webkit-transform: rotate(180deg); }
-    70% { -webkit-transform: rotate(180deg); }
-    100% { -webkit-transform: rotate(360deg); }
-}
-
-/* firefox */
-
-@-moz-keyframes loading  {
-    0% { -moz-transform: rotate(0); }
-    20% { -moz-transform: rotate(0); }
-    50% { -moz-transform: rotate(180deg); }
-    70% { -moz-transform: rotate(180deg); }
-    100% { -moz-transform: rotate(360deg); }
-}
-
-/* opera */
-@-o-keyframes loading  {
-    0% { transform: rotate(0); }
-    20% { transform: rotate(0); }
-    50% { transform: rotate(180deg); }
-    70% { transform: rotate(180deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* other ie */
-@keyframes loading  {
-    0% { 
-    	-ms-transform: rotate(0); 
-    	transform: rotate(0); 
-    }
-    20% { 
-    	-ms-transform: rotate(0); 
-    	transform: rotate(0); 
-    }
-    50% { 
-    	-ms-transform: rotate(180deg); 
-    	transform: rotate(180deg); 
-    }
-    70% { 
-    	-ms-transform: rotate(180deg); 
-    	transform: rotate(180deg); 
-    }
-    100% { 
-    	-ms-transform: rotate(360deg); 
-    	transform: rotate(360deg); 
-    }
-}
-
 .loading-icon {
 	text-align: center;
 	min-height: 300px;
@@ -59,35 +8,7 @@
 	position: absolute;
 	top: 50%;
     transform-origin: 50% 33.333%;
-	margin-top: -43px;
-	margin-left: -50px;
-	width: 100px;
-    
-    transform: translate3d(0,0,0);
-    -webkit-transform: translate3d(0,0,0);
-
-
-    animation-name: loading;
-    animation-duration: 4s;
-    animation-timing-function: ease;
-    animation-iteration-count: infinite;
-    animation-play-state: running;
-
-    -o-animation-name: loading;
-    -o-animation-duration: 4s;
-    -o-animation-timing-function: ease;
-    -o-animation-iteration-count: infinite;
-    -o-animation-play-state: running;
-
-    -moz-animation-name: loading;
-    -moz-animation-duration: 4s;
-    -moz-animation-timing-function: ease;
-    -moz-animation-iteration-count: infinite;
-    -moz-animation-play-state: running;
-
-    -webkit-animation-name: loading;
-    -webkit-animation-duration: 4s;
-    -webkit-animation-timing-function: ease;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-play-state: running;
+	margin-top: -112px;
+	margin-left: -200px;
+	width: 400px;
 }
