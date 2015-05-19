@@ -2,7 +2,7 @@
 
 var React = require('react/addons');
 var Router = require('react-router');
-var { Route, DefaultRoute, RouteHandler, Link } = Router;
+var { Route, DefaultRoute, RouteHandler, Link, Navigation } = Router;
 
 var VideoItem = require('./VideoItem.js');
 var VideoCategoryItem = require('./VideoCategoryItem.js');
@@ -13,6 +13,23 @@ var _ = require('underscore');
 require('styles/Videos.sass');
 
 var Videos = React.createClass({
+    mixins: [Navigation],
+
+    componentWillMount: function () {
+        var playInstantly = this.getCategory().play_instantly;
+        if (playInstantly) {
+            this.redirectToFirstVideo();
+        };
+    },
+
+    redirectToFirstVideo: function () {
+        var category = this.getCategory();
+        var firstVideo = category.videos[0];
+        if (firstVideo) {
+            this.transitionTo('video', {categorySlug: this.getCategory().slug, videoSlug: firstVideo.slug});
+        }
+    },
+
     contextTypes: {
         router: React.PropTypes.func
     },
