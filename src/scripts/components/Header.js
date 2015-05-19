@@ -17,6 +17,9 @@ var Header = React.createClass({
             <li className="nav__list__item nav__list__item--left">
               <Link to="film">Film</Link>
             </li>
+            <li className="nav__list__item nav__list__item--logo-link">
+              <Link to="about">About</Link>
+            </li>
             <li className="nav__list__item nav__list__item--right">
               <Link to="photo">Photo</Link>
             </li>
