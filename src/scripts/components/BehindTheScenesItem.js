@@ -8,7 +8,8 @@ var BehindTheScenesItem = React.createClass({
 	composeStyle: function () {
 		return { 
 			'background-image': 'url(' + this.props.imageSrc + ')',
-			'width': this.props.width + 'px'
+			'width': this.props.width + 'px',
+			'height': this.props.height + 'px'
 		};
 	},
 
