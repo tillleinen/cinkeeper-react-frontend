@@ -11,6 +11,7 @@ require('styles/BehindTheScenes.sass');
 
 var $ = require('jquery');
 var _ = require('underscore');
+require('../utils/mousewheel.js');
 
 var BehindTheScenes = React.createClass({
 
@@ -23,14 +24,28 @@ var BehindTheScenes = React.createClass({
 
 	componentWillMount: function () {
 		$(window).on('resize', this.handleResize);
+		$(window).on('mousewheel', this.mapScrolling);
 	},
 
 	componentWillUnmount: function () {
 		$(window).off('resize', this.handleResize);
+		$(window).off('mousewheel', this.mapScrolling);
 	},
 
 	componentDidMount: function() {
 		this.fetchData();
+	},
+
+	mapScrolling: function (event) {
+		event.preventDefault();
+		var verticalScroll = event.deltaY;
+		var horizontalScroll = event.deltaX;
+		this.scrollHorizontal(verticalScroll, horizontalScroll);
+	},
+
+	scrollHorizontal: function (verticalScroll, horizontalScroll) {
+		var scroll = $(window).scrollLeft();
+		$(window).scrollLeft(scroll - (verticalScroll - horizontalScroll));		
 	},
 
 	fetchData: function () {
