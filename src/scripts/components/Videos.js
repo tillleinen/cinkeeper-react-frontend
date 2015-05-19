@@ -19,7 +19,7 @@ var Videos = React.createClass({
         var playInstantly = this.getCategory().play_instantly;
         if (playInstantly) {
             this.redirectToFirstVideo();
-        };
+        }
     },
 
     redirectToFirstVideo: function () {
