@@ -23,12 +23,6 @@ body {
   min-width: 320px;
 }
 
-a:link {
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-}
-
 body.is-fixed {
   overflow: hidden;
 }
