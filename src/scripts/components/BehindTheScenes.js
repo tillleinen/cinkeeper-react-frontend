@@ -72,7 +72,7 @@ var BehindTheScenes = React.createClass({
 
 	handleResize: function () {
 		this.setState({
-			containerHeight: $(this.getDOMNode()).height()
+			containerHeight: this.getHeight()
 		});
 	},
 
@@ -96,7 +96,7 @@ var BehindTheScenes = React.createClass({
 
   calcPhotoHeight: function (photo) {
   	if(this.isTablet()) {
-  		var availableWidth = $(window).width();
+  		var availableWidth = $('body').width();
   		var photoScale = availableWidth / photo.width;
   		return Math.round(photo.height * photoScale);
   	}
@@ -105,10 +105,10 @@ var BehindTheScenes = React.createClass({
   },
 
   getHeight: function () {
-  	var bodyHeight = $(window).innerHeight();
+  	var bodyHeight = $(window).height();
     var headerHeight = $('header').outerHeight();
-	var footerHeight = $('footer').outerHeight();
-	return this.calcAvailableHeight(bodyHeight, headerHeight, footerHeight);
+  	var footerHeight = $('footer').outerHeight();
+  	return this.calcAvailableHeight(bodyHeight, headerHeight, footerHeight);
   },
 
   calcAvailableHeight: function (bodyHeight, headerHeight, footerHeight) {

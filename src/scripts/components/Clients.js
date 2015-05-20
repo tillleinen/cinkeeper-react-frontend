@@ -46,7 +46,6 @@ var Clients = React.createClass({
 	  			<ul className="clients-list">
 	        		{
 	        			this.state.clients.map(function (client) {
-	        				console.log(client);
 	        				return <li className="clients-list__item" style={{'background-image': 'url(' + client.image.image.small.url + ')' }}></li>;
 	        			}.bind(this))
 	        		}
@@ -55,7 +54,7 @@ var Clients = React.createClass({
   	}
 
     return (
-        <div className="clients">
+        <div className="clients-container">
         	<div className="clients__bg-image"></div>
 	        {content}
         </div>

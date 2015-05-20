@@ -31,10 +31,12 @@ var Cinekeeper = React.createClass({
   },
 
   setContentHeight: function() {
-      var bodyHeight = $(window).innerHeight();
+      var bodyHeight = $(window).height();
+      console.log(bodyHeight);
       var headerHeight = $('header').outerHeight();
       var footerHeight = $('footer').outerHeight();
       var height = this.calcAvailableHeight(bodyHeight, headerHeight, footerHeight);
+      console.log(height);
       this.setState({height: height});
   },
 
@@ -49,7 +51,7 @@ var Cinekeeper = React.createClass({
         <Link className="logo" to="home">
           Cinekeeper
         </Link>
-        <div className="content" style={{'min-height': this.state.height + 'px'}}>
+        <div className="content" style={{'height': this.state.height + 'px'}}>
           <RouteHandler/>
         </div>
         <Footer />

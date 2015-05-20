@@ -44,3 +44,9 @@ Router.run(Routes, function (Handler) {
 
 var fastclick = require('fastclick');
 fastclick.attach(document.body);
+
+var HorizontalScrollbarResizeDetector = require('../utils/HorizontalScrollbarResizeDetector.js');
+document.body.appendChild(HorizontalScrollbarResizeDetector);
+
+var VerticalScrollbarResizeDetector = require('../utils/VerticalScrollbarResizeDetector.js');
+document.body.appendChild(VerticalScrollbarResizeDetector);
