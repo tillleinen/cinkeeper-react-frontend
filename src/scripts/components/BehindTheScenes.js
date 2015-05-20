@@ -77,7 +77,6 @@ var BehindTheScenes = React.createClass({
 	},
 
   calcTotalPhotoWidth: function () {
-  	console.log('calcTotalPhotoWidth');
   	if(this.isTablet()) {
   		return $(window).width();
   	}
@@ -92,7 +91,6 @@ var BehindTheScenes = React.createClass({
   	}
     var availableHeight = this.getHeight();
     var photoScale = availableHeight / photo.height;
-    console.log(Math.round(photo.width * photoScale));
     return Math.round(photo.width * photoScale);
   },
 
