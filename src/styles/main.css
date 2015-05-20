@@ -18,9 +18,15 @@ body {
   background: black;
   font-family: "futura-pt", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  color: #333;
+  color: white;
   box-sizing: border-box;
   min-width: 320px;
+}
+
+a:link {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 body.is-fixed {
