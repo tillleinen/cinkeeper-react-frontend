@@ -11,6 +11,7 @@ require('styles/PhotoItem.sass');
 var PhotoItem = React.createClass({
 	getInitialState: function () {
 		return {
+			height: 0,
 			translateX: 0,
 			translateY: 0,
 			scale: 1
@@ -34,6 +35,8 @@ var PhotoItem = React.createClass({
 			this.setScale(width, height, availableWidth, availableHeight);	
 
 		}.bind(this), 1000);
+
+		this.setHeight();
 	},
 
 	selectImage: function (e) {
@@ -87,10 +90,16 @@ var PhotoItem = React.createClass({
 		};
 	},
 
+	setHeight: function () {
+		var width = $(this.getDOMNode()).parent().width();
+		var photoScale = width / this.props.photo.width;
+		this.setState({ height: Math.round(this.props.photo.height * photoScale)});
+	},
+
   render: function () {
     return (
       <li className="photo-item" style={this.composeStyle()} onClick={this.selectImage}>
-   		<img src={this.props.photo.image.image.medium.url} />
+   		<img src={this.props.photo.image.image.medium.url} style={{ height: this.state.height + 'px' }} />
       </li>
     );
   }
