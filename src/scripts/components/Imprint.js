@@ -11,7 +11,7 @@ var Imprint = React.createClass({
         	<div className="imprint__bg-image"></div>
         	<div className="imprint__content">
         		<h1 className="imprint__content__headline">Impressum</h1>
-				<span style={{'margin-top' : '-40px'}}>Angaben gem&auml;&szlig; &sect; 5 TMG</span>
+				<span>Angaben gem&auml;&szlig; &sect; 5 TMG</span>
 
 				<h2>CINEKEEPER</h2>
 				<p>Domanski / Herbort GbR&nbsp;<br />
