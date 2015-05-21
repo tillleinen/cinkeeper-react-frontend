@@ -2,7 +2,7 @@
 
 var React = require('react/addons');
 var Router = require('react-router');
-var { Route, DefaultRoute, RouteHandler, Link } = Router;
+var { Route, DefaultRoute, RouteHandler, Link, Navigation } = Router;
 
 var $ = require('jquery');
 var _ = require('underscore');
@@ -12,6 +12,8 @@ require('styles/VideoPlayer.sass');
 var LoadingIcon = require('./LoadingIcon.js');
 
 var VideoPlayer = React.createClass({
+    mixins: [Navigation],
+
     contextTypes: {
         router: React.PropTypes.func
     },
@@ -41,10 +43,19 @@ var VideoPlayer = React.createClass({
 
     componentWillMount: function () {
         $(window).on('resize', this.setIframeHeight).trigger('resize');
+        $(window).on('keyup', this.transitionToCategory);
     },
 
     componentWillUnmount: function () {
         $(window).off("resize", this.setIframeHeight);
+        $(window).off('keyup', this.transitionToCategory);
+    },
+
+    transitionToCategory: function (event) {
+        if(event.keyCode === 27) {
+            var params = this.context.router.getCurrentParams();
+            this.transitionTo('category', {categorySlug: params.categorySlug});  
+        }
     },
 
     render: function () {
