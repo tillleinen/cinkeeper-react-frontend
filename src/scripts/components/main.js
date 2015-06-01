@@ -20,7 +20,7 @@ var { Route, DefaultRoute, RouteHandler, Link } = Router;
 var app = document.getElementById('app');
 
 var triggerPageview = function () {
-    ga('send', 'pageview');
+    ga('send', 'pageview', location.hash.substr(1));
 };
 
 var Routes = (
