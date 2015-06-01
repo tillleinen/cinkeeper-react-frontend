@@ -38,6 +38,14 @@ var PhotoItem = React.createClass({
 			var photoScale = width / this.props.photo.width;
 			this.setState({ height: Math.round(this.props.photo.height * photoScale)});
 		}
+
+		console.log($('body').scrollTop());
+		return {
+			'transform': 'translate3d(' + this.state.translateX + 'px, ' + (this.state.translateY + $('body').scrollTop()) + 'px, 0) scale(' + this.state.scale + ')',
+			// 'transform': 'translate3d(' + this.state.translateX + 'px, ' + this.state.translateY + 'px, 0) scale(' + this.state.scale + ')',
+			'opacity': 1,
+			'zIndex': 100
+		};
 	},
 
 	getImageURL: function () {

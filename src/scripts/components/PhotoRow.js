@@ -7,9 +7,16 @@ var $ = require('jquery');
 require('styles/PhotoRow.sass');
 
 var PhotoRow = React.createClass({
+  getInitialState: function () {
+    return {
+      overlayLeft: 0
+    }
+  },
+
   componentDidMount: function () {
     this.animationFrames = [];
     this.scrollInterval = setInterval(this.handleInterval, 1);
+    $(window).on('resize', this.handleResize).trigger('resize');
   },
 
   componentWillUnmount: function () {
@@ -17,10 +24,17 @@ var PhotoRow = React.createClass({
     for (var i = this.animationFrames.length - 1; i >= 0; i--) {
       window.cancelAnimationFrame(this.animationFrames[i]);
     }
+    $(window).off('resize', this.handleResize);
   },
 
   handleInterval: function () {
     this.animationFrames.push(window.requestAnimationFrame(this.moveY));
+  },
+
+  handleResize: function () {
+    this.setState({
+      overlayLeft: $(this.getDOMNode()).offset().left
+    });
   },
 
   moveY: function () {
@@ -38,9 +52,44 @@ var PhotoRow = React.createClass({
     rowNode.css('transform', 'translate3d(0,' + necessaryOffset + 'px,0)');    
   },
 
+  composeStyle: function () {
+    var style = {
+      width: 100 / this.props.numRows + '%',
+      zIndex: 0
+    };
+
+    if(this.props.hasZoomedImage) {
+      style.zIndex = 100;
+    }
+
+    return style;
+  },
+
+  composeOverlayStyle: function () {
+    return {
+      width: $(window).width(),
+      left:  -this.state.overlayLeft
+    };
+  },
+
+  composeOverlayClassName: function () {
+    var className = "photo-list__overlay";
+
+    if(this.props.hasZoomedImage) {
+      className += ' photo-list__overlay--shown';
+    }
+
+    return className;
+  },
+
+  cancelSelection: function () {
+    this.props.onSelect(null);
+  },
+
   render: function () {
     return (
-        <ul className="photo-list" ref="row" style={{width: 100 / this.props.numRows + '%'}}>
+        <ul className="photo-list" ref="row" style={this.composeStyle()}>
+          <div className={this.composeOverlayClassName()} style={this.composeOverlayStyle()} onClick={this.cancelSelection} />
           {
             this.props.photos.map(function (photo) {
               var isZoomed = (photo.id === this.props.zoomedImageID);
