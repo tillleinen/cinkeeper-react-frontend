@@ -19,6 +19,12 @@ var { Route, DefaultRoute, RouteHandler, Link } = Router;
 
 var app = document.getElementById('app');
 
+var triggerPageview = function () {
+    if(typeof ga !== 'undefined') {
+        ga('send', 'pageview');
+    }    
+};
+
 var Routes = (
     <Route handler={Cinekeeper} path="/">
         <DefaultRoute name="home" handler={Home} />
@@ -39,6 +45,7 @@ var Routes = (
 );
 
 Router.run(Routes, function (Handler) {
+    triggerPageview();
     React.render(<Handler/>, app);
 });
 
