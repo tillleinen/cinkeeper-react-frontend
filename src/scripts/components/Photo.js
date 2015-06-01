@@ -96,9 +96,23 @@ var Photo = React.createClass({
   },
 
   zoomImage: function (imageID) {
+    if(imageID) {
+      this.preventScrolling();
+    } else {
+      this.allowScrolling();
+    }
+
     this.setState({
       zoomedImageID: imageID
     });
+  },
+
+  preventScrolling: function () {
+    $('body').addClass('is-fixed');
+  },
+
+  allowScrolling: function () {
+    $('body').removeClass('is-fixed');
   },
 
   render: function () {
