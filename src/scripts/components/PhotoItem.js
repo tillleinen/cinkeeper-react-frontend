@@ -49,8 +49,6 @@ var PhotoItem = React.createClass({
 	},
 
   render: function () {
-  	console.log(this.getImageURL());
-
     return (
       <li className="photo-item" onClick={this.selectImage}>
    		<img src={this.getImageURL()} style={{ height: this.state.height + 'px' }} />
