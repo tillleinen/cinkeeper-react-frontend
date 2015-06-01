@@ -4,6 +4,8 @@ var React = require('react/addons');
 var Router = require('react-router');
 var { Route, DefaultRoute, RouteHandler, Link } = Router;
 
+var ResponsiveImage = require('../utils/ResponsiveImage');
+
 var $ = require('jquery');
 require('styles/VideoItem.sass');
 
@@ -21,8 +23,16 @@ var VideoItem = React.createClass({
 
     composeStyle: function () {
         return {
-            backgroundImage: 'url(' + this.props.video.image.image.medium.url + ')'
+            backgroundImage: 'url(' + this.getImageURL() + ')'
         };
+    },
+
+    getImageURL: function () {
+        return ResponsiveImage(
+            this.props.video.image.image.medium.url,
+            this.props.video.image.image.small.url,
+            this.props.video.image.image.small.url
+        );
     },
 
     render: function () {

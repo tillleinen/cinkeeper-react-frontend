@@ -4,6 +4,8 @@ var React = require('react/addons');
 var Router = require('react-router');
 var { Route, DefaultRoute, RouteHandler, Link } = Router;
 
+var ResponsiveImage = require('../utils/ResponsiveImage');
+
 var $ = require('jquery');
 
 require('styles/PhotoItem.sass');
@@ -38,10 +40,20 @@ var PhotoItem = React.createClass({
 		}
 	},
 
+	getImageURL: function () {
+		return ResponsiveImage(
+			this.props.photo.image.image.medium.url,
+			this.props.photo.image.image.small.url,
+			this.props.photo.image.image.small.url
+		);
+	},
+
   render: function () {
+  	console.log(this.getImageURL());
+
     return (
       <li className="photo-item" onClick={this.selectImage}>
-   		<img src={this.props.photo.image.image.medium.url} style={{ height: this.state.height + 'px' }} />
+   		<img src={this.getImageURL()} style={{ height: this.state.height + 'px' }} />
       </li>
     );
   }

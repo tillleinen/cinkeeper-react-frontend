@@ -4,6 +4,8 @@ var React = require('react/addons');
 var Router = require('react-router');
 var { Route, DefaultRoute, RouteHandler, Link } = Router;
 
+var ResponsiveImage = require('../utils/ResponsiveImage');
+
 var $ = require('jquery');
 
 require('styles/VideoCategoryItem.sass');
@@ -24,7 +26,7 @@ var VideoCategoryItem = React.createClass({
 
   composeImageStyle: function () {
     return {
-      backgroundImage: 'url(' + this.props.data.image.image.medium.url + ')'
+      backgroundImage: 'url(' + this.getImageURL() + ')'
     };
   },
 
@@ -40,6 +42,14 @@ var VideoCategoryItem = React.createClass({
       '-ms-transform': 'translate3d(0,' + translateY + '%,0)',
       '-webkit-transform': 'translate3d(0,' + translateY + '%,0)'
     };
+  },
+
+  getImageURL: function () {
+    return ResponsiveImage(
+      this.props.data.image.image.large.url,
+      this.props.data.image.image.medium.url,
+      this.props.data.image.image.small.url
+    );
   },
 
   render: function () {
