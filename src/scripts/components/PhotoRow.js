@@ -16,7 +16,6 @@ var PhotoRow = React.createClass({
   componentDidMount: function () {
     this.animationFrames = [];
     this.scrollInterval = setInterval(this.handleInterval, 1);
-    $(window).on('resize', this.handleResize).trigger('resize');
   },
 
   componentWillUnmount: function () {
@@ -24,17 +23,10 @@ var PhotoRow = React.createClass({
     for (var i = this.animationFrames.length - 1; i >= 0; i--) {
       window.cancelAnimationFrame(this.animationFrames[i]);
     }
-    $(window).off('resize', this.handleResize);
   },
 
   handleInterval: function () {
     this.animationFrames.push(window.requestAnimationFrame(this.moveY));
-  },
-
-  handleResize: function () {
-    this.setState({
-      overlayLeft: $(this.getDOMNode()).offset().left
-    });
   },
 
   moveY: function () {
@@ -68,7 +60,7 @@ var PhotoRow = React.createClass({
   composeOverlayStyle: function () {
     return {
       width: $(window).width(),
-      left:  -this.state.overlayLeft
+      left:  (-this.props.index * 100) + '%'
     };
   },
 

@@ -121,11 +121,11 @@ var Photo = React.createClass({
     var content = <LoadingIcon />;
 
     if(this.state.photos.length > 0) {
-      content = rows.map(function (row) {
+      content = rows.map(function (row, index) {
         var hasZoomedImage = !!_.find(row, function (photo) {
           return photo.id === this.state.zoomedImageID;
         }.bind(this));
-        return <PhotoRow hasZoomedImage={hasZoomedImage} numRows={rows.length} photos={row} zoomedImageID={this.state.zoomedImageID} onSelect={this.zoomImage} />;
+        return <PhotoRow index={index} hasZoomedImage={hasZoomedImage} numRows={rows.length} photos={row} zoomedImageID={this.state.zoomedImageID} onSelect={this.zoomImage} />;
       }.bind(this));
     }
 
