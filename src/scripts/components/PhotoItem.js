@@ -31,8 +31,10 @@ var PhotoItem = React.createClass({
 	handleResize: function () {
 		if (this.isMounted()) {
 			this.setHeight();
-			this.setZoomTranslation();
-			this.setZoomScale();
+			setTimeout(function () {
+				this.setZoomTranslation();
+				this.setZoomScale();
+			}.bind(this), 100);
 		}
 	},
 
