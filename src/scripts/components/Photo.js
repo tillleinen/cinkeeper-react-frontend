@@ -125,7 +125,7 @@ var Photo = React.createClass({
         var hasZoomedImage = !!_.find(row, function (photo) {
           return photo.id === this.state.zoomedImageID;
         }.bind(this));
-        return <PhotoRow index={index} hasZoomedImage={hasZoomedImage} numRows={rows.length} photos={row} zoomedImageID={this.state.zoomedImageID} onSelect={this.zoomImage} />;
+        return <PhotoRow key={index} index={index} hasZoomedImage={hasZoomedImage} numRows={rows.length} photos={row} zoomedImageID={this.state.zoomedImageID} onSelect={this.zoomImage} />;
       }.bind(this));
     }
 

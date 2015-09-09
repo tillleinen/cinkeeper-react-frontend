@@ -21,7 +21,8 @@ var PhotoItem = React.createClass({
 	},
 
 	componentDidMount: function () {
-		$(window).on('resize', this.handleResize).trigger('resize');
+		$(window).on('resize', this.handleResize);
+		this.handleResize();
 	},
 
 	componentWillUnmount: function () {
@@ -32,8 +33,8 @@ var PhotoItem = React.createClass({
 		if (this.isMounted()) {
 			this.setHeight();
 			setTimeout(function () {
-				this.setZoomTranslation();
 				this.setZoomScale();
+				this.setZoomTranslation();
 			}.bind(this), 100);
 		}
 	},
@@ -49,6 +50,9 @@ var PhotoItem = React.createClass({
 		var center = this.computeCenter();
 		var dimensions = this.computeDimensions();
 
+		var scaledWidth = dimensions.width * this.state.zoomScale;
+		var scaledHeight = dimensions.height * this.state.zoomScale;
+
 		this.setState({
 			zoomTranslateX: center.x - offset.x - dimensions.width/2,
 			zoomTranslateY: center.y - offset.y - dimensions.height/2
@@ -60,7 +64,7 @@ var PhotoItem = React.createClass({
 
 		return {
 			x: domNode[0].getBoundingClientRect().left,
-			y: domNode[0].getBoundingClientRect().top
+			y: domNode[0].getBoundingClientRect().top - 60
 		};
 	},
 
@@ -90,33 +94,27 @@ var PhotoItem = React.createClass({
 		var domNode = $(this.getDOMNode());
 
 		return {
-			width: domNode.height(),
-			height: domNode.width()
+			width: domNode.width(),
+			height: domNode.height()
 		};
 	},
 
 	setZoomScale: function () {
+		var dimensions = this.computeDimensions();
+		var width = dimensions.width;
+		var height = dimensions.height;
+
+		var aspectRatio = width/height;
+		var availableWidth = $(window).width();
+		var availableHeight = this.getAvailableHeight();
+		var availableAspectRatio = availableWidth/availableHeight;
+
+		var scale = (aspectRatio > availableAspectRatio) ? (availableWidth / width) : (availableHeight / height);
+
 		this.setState({
-			zoomScale: 1
+			zoomScale: scale
 		});
 	},
-
-
-
-
-
-	// setScale: function (width, height, availableWidth, availableHeight) {
-	// 	var aspectRatio = width/height;
-	// 	var availableAspectRatio = availableWidth/availableHeight;
-
-	// 	var scale = (aspectRatio > availableAspectRatio) ? (availableWidth / width) : (availableHeight / height);
-
-	// 	this.setState({
-	// 		scale: scale
-	// 	});
-	// },
-
-
 
 	selectImage: function (e) {
 		var isAlreadySelected = this.props.isZoomed;
@@ -130,33 +128,27 @@ var PhotoItem = React.createClass({
 		this.props.onSelect(null);
 	},
 
-
-		// setTimeout(function() {
-		// 	var domNode = $(this.getDOMNode());
-		// 	var height = domNode.height();
-		// 	var width = domNode.width();
-
-		// 	var offsetX = domNode[0].getBoundingClientRect().left;
-		// 	var offsetY = domNode[0].getBoundingClientRect().top;
-
-		// 	var availableHeight = this.getAvailableHeight();
-		// 	var windowHeight = $(window).height();
-		// 	var availableWidth = $(window).width();
-
-		// 	this.setScale(width, height, availableWidth, availableHeight);
-
-
-
 	composeStyle: function () {
 		var style = {};
 
 		if(this.props.isZoomed) {
-			style['transform'] = 'translate3d(' + this.state.zoomTranslateX + 'px, ' + this.state.zoomTranslateY + 'px, 0) scale(' + this.state.zoomScale + ')';
+			var scrollPosition = $(document).scrollTop();
+			var parentTranslationY = this.getTranslationYOfParent();
+			var translateY = this.state.zoomTranslateY + scrollPosition - parentTranslationY;
+
+			style['transform'] = 'translate3d(' + this.state.zoomTranslateX + 'px, ' + translateY + 'px, 0) scale(' + this.state.zoomScale + ')';
 			style['opacity'] = 1;
 			style['zIndex'] = 100;
 		}
 
 		return style;
+	},
+
+	getTranslationYOfParent: function () {
+		var transformString = $(this.getDOMNode()).parent().css('transform');
+		var transformStringParts = transformString.split(",");
+		var translateY = parseFloat(transformStringParts[transformStringParts.length - 1]);
+		return translateY;
 	},
 
 	composeImageStyle: function () {
