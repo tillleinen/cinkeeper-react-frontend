@@ -1,52 +1,66 @@
 'use strict';
 
 var React = require('react/addons');
-var Request = require('../utils/Request.js');
+
+var $ = require('jquery');
 
 require('styles/Home.sass');
 
 var Home = React.createClass({
-	getInitialState: function () {
-		return {
-			background_images: []
-		};
-	},
+  composeStyle: function () {
+    var bodyHeight = $(window).innerHeight();
+    var headerHeight = $('header').outerHeight();
+    var footerHeight = $('footer').outerHeight();
+    
+    var availableHeight = this.calcAvailableHeight(bodyHeight, headerHeight, footerHeight);
+    var availableWidth = $(window).innerWidth();
 
-	componentDidMount: function() {
-		this.fetchData();
-	},
+    var videoWidth = 1920;
+    var videoHeight = 814;
 
-	fetchData: function () {
-		Request
-			.get('/background_images')
-			.end(this.handleResponse);
-	},
+    var availableAspectRatio = availableWidth / availableHeight;
+    var videoAspectRatio = videoWidth / videoHeight;
 
-	handleResponse: function (err, res) {
-		if(err) {
-			console.log(err);
-		} else if(this.isMounted()) {
-			var background_images = JSON.parse(res.text).background_images;
-			this.setState({
-				background_images: background_images
-			});
-		}
-	},
+    if(availableAspectRatio > videoAspectRatio) {
+      var scaling = availableWidth / videoWidth;
 
-	composeStyle: function () {
-		if (this.state.background_images.length === 0) {
-			return {};
-		}
-		return {
-			'background-image': 'url(' + this.state.background_images[0].image.image.medium.url + ')'
-		};
-	},
+      var scaledVideoHeight = videoHeight * scaling;
+      var scaledVideoWidth = videoWidth * scaling;
 
+      return {
+        width: scaledVideoWidth + "px",
+        height: scaledVideoHeight + "px",
+        left: 0,
+        top: ((availableHeight - scaledVideoHeight) / 2) + "px"
+      };
+    } else {
+      var scaling = availableHeight / videoHeight;
+
+      var scaledVideoHeight = videoHeight * scaling;
+      var scaledVideoWidth = videoWidth * scaling;
+
+      return {
+        width: scaledVideoWidth + "px",
+        height: scaledVideoHeight + "px",
+        left: ((availableWidth - scaledVideoWidth) / 2) + "px",
+        top: 0
+      };
+    }
+  },
+
+  calcAvailableHeight: function (bodyHeight, headerHeight, footerHeight) {
+    return bodyHeight - (headerHeight + footerHeight);
+  },
+  
   render: function () {
     return (
-	  <div className="home" style={this.composeStyle()}>
-	  </div>
-	);
+      <div className="home">
+        <video className="home__video" style={this.composeStyle()} preload autoPlay="autoplay" loop="true">
+          <source src="../videos/home.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    );
   }
 });
 
