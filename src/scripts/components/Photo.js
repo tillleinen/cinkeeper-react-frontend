@@ -8,7 +8,6 @@ var _ = require('underscore');
 var $ = require('jquery');
 
 var Device = require('../utils/Device.js');
-var DeviceConstants = require('../constants/DeviceConstants.js');
 
 var Request = require('../utils/Request.js');
 
@@ -73,13 +72,12 @@ var Photo = React.createClass({
   },
 
   calcNumRows: function () {
-    switch(Device.detect()) {
-      case DeviceConstants.DESKTOP:
-        return 3;
-      case DeviceConstants.TABLET:
-        return 2;
-      case DeviceConstants.MOBILE:
-        return 1;
+    if(Device.isDesktop()) {
+      return 3;
+    } else if (Device.isTablet()) {
+      return 2;
+    } else {
+      return 1;
     }
   },
 
@@ -96,9 +94,23 @@ var Photo = React.createClass({
   },
 
   zoomImage: function (imageID) {
+    if(imageID) {
+      this.preventScrolling();
+    } else {
+      this.allowScrolling();
+    }
+
     this.setState({
       zoomedImageID: imageID
     });
+  },
+
+  preventScrolling: function () {
+    $('body').addClass('is-fixed');
+  },
+
+  allowScrolling: function () {
+    $('body').removeClass('is-fixed');
   },
 
   render: function () {
@@ -107,11 +119,11 @@ var Photo = React.createClass({
     var content = <LoadingIcon />;
 
     if(this.state.photos.length > 0) {
-      content = rows.map(function (row) {
+      content = rows.map(function (row, index) {
         var hasZoomedImage = !!_.find(row, function (photo) {
           return photo.id === this.state.zoomedImageID;
         }.bind(this));
-        return <PhotoRow hasZoomedImage={hasZoomedImage} numRows={rows.length} photos={row} zoomedImageID={this.state.zoomedImageID} onSelect={this.zoomImage} />;
+        return <PhotoRow key={index} index={index} hasZoomedImage={hasZoomedImage} numRows={rows.length} photos={row} zoomedImageID={this.state.zoomedImageID} onSelect={this.zoomImage} />;
       }.bind(this));
     }
 

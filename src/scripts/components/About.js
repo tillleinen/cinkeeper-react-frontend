@@ -14,15 +14,15 @@ var About = React.createClass({
         <div className="about-container">
           <ul className="about-overview">
           	<div className="about-overview__left">
-              <AboutItem linkTo="clients" className="clients" text="Clients" imageSrc="../../images/Bildschirmfoto_2015-02-19_um_03.08.12.png" />
-	          	<AboutItem linkTo="behindthescenes" className="behind-the-scenes" text="Behind the Scenes" imageSrc="../../images/DSC_0022.jpg" />
+              <AboutItem linkTo="clients" className="clients" text="Clients" />
+			<AboutItem linkTo="behindthescenes" className="behind-the-scenes" text="Behind the Scenes" />
             </div>
             <div className="about-overview__center">
-              <AboutItem className="we" text="We" imageSrc="../../images/P1130522.jpg" />
+              <AboutItem className="we" text="We" />
             </div>
             <div className="about-overview__right">
-              <AboutItem linkTo="contact" className="contact" text="Contact" imageSrc="../../images/DSC_0162.jpg" />
-              <AboutItem linkTo="imprint" className="imprint" text="Impressum" imageSrc="../../images/IMG_8165.jpg" />
+              <AboutItem linkTo="contact" className="contact" text="Contact" />
+              <AboutItem linkTo="imprint" className="imprint" text="Impressum" />
           	</div>
           </ul>
         </div>
