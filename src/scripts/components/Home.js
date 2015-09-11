@@ -31,7 +31,7 @@ var Home = React.createClass({
         width: scaledVideoWidth + "px",
         height: scaledVideoHeight + "px",
         left: 0,
-        top: ((availableHeight - scaledVideoHeight) / 2) + "px"
+        top: ((availableHeight - scaledVideoHeight) / 2 + 60) + "px"
       };
     } else {
       var scaling = availableHeight / videoHeight;
@@ -43,7 +43,7 @@ var Home = React.createClass({
         width: scaledVideoWidth + "px",
         height: scaledVideoHeight + "px",
         left: ((availableWidth - scaledVideoWidth) / 2) + "px",
-        top: 0
+        top: 60 + "px"
       };
     }
   },
@@ -55,7 +55,8 @@ var Home = React.createClass({
   render: function () {
     return (
       <div className="home">
-        <video className="home__video" style={this.composeStyle()} preload autoPlay="autoplay" loop="true">
+        <video className="home__video" style={this.composeStyle()} preload autoPlay loop="true">
+          <source src="../videos/home.webm" type="video/webm" />
           <source src="../videos/home.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
