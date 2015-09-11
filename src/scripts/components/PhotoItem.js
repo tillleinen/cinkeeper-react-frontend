@@ -5,6 +5,7 @@ var Router = require('react-router');
 var { Route, DefaultRoute, RouteHandler, Link } = Router;
 
 var ResponsiveImage = require('../utils/ResponsiveImage');
+var Device = require('../utils/Device.js');
 
 var $ = require('jquery');
 
@@ -117,11 +118,13 @@ var PhotoItem = React.createClass({
 	},
 
 	selectImage: function (e) {
-		var isAlreadySelected = this.props.isZoomed;
-		if(isAlreadySelected) {
-			return this.unselectImage();
+		if(!Device.isMobile()) {
+			var isAlreadySelected = this.props.isZoomed;
+			if(isAlreadySelected) {
+				return this.unselectImage();
+			}
+			this.props.onSelect(this.props.photo.id);
 		}
-		this.props.onSelect(this.props.photo.id);
 	},
 
 	unselectImage: function () {
@@ -165,9 +168,19 @@ var PhotoItem = React.createClass({
 		);
 	},
 
+	composeClassName: function () {
+		var className = "photo-item";
+
+		if(Device.isMobile()) {
+			className += " photo-item--mobile";
+		}
+
+		return className;
+	},
+
   render: function () {
     return (
-      <li className="photo-item" onClick={this.selectImage} style={this.composeStyle()}>
+      <li className={this.composeClassName()} onClick={this.selectImage} style={this.composeStyle()}>
 		<img className="photo-item__image" src={this.props.photo.image.image.medium.url} style={this.composeImageStyle()} />
       </li>
     );
