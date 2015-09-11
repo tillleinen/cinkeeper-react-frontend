@@ -8,7 +8,6 @@ var _ = require('underscore');
 var $ = require('jquery');
 
 var Device = require('../utils/Device.js');
-var DeviceConstants = require('../constants/DeviceConstants.js');
 
 var Request = require('../utils/Request.js');
 
@@ -73,13 +72,12 @@ var Photo = React.createClass({
   },
 
   calcNumRows: function () {
-    switch(Device.detect()) {
-      case DeviceConstants.DESKTOP:
-        return 3;
-      case DeviceConstants.TABLET:
-        return 2;
-      case DeviceConstants.MOBILE:
-        return 1;
+    if(Device.isDesktop()) {
+      return 3;
+    } else if (Device.isTablet()) {
+      return 2;
+    } else {
+      return 1;
     }
   },
 

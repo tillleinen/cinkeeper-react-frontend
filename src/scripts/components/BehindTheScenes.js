@@ -7,7 +7,6 @@ var LoadingIcon = require('./LoadingIcon.js');
 
 var Request = require('../utils/Request.js');
 var Device = require('../utils/Device.js');
-var DeviceConstants = require('../constants/DeviceConstants.js');
 
 require('styles/BehindTheScenes.sass');
 
@@ -116,13 +115,7 @@ var BehindTheScenes = React.createClass({
   },
 
   isTablet: function () {
-    switch(Device.detect()) {
-      case DeviceConstants.TABLET:
-        return true;
-      case DeviceConstants.MOBILE:
-        return true;
-    }
-    return false;
+    return !Device.isDesktop();
   },
 
   render: function () {
