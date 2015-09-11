@@ -140,6 +140,8 @@ var PhotoItem = React.createClass({
 			var translateY = this.state.zoomTranslateY + scrollPosition - parentTranslationY;
 
 			style['transform'] = 'translate3d(' + this.state.zoomTranslateX + 'px, ' + translateY + 'px, 0) scale(' + this.state.zoomScale + ')';
+			style['-ms-transform'] = 'translate3d(' + this.state.zoomTranslateX + 'px, ' + translateY + 'px, 0) scale(' + this.state.zoomScale + ')';
+			style['-webkit-transform'] = 'translate3d(' + this.state.zoomTranslateX + 'px, ' + translateY + 'px, 0) scale(' + this.state.zoomScale + ')';
 			style['opacity'] = 1;
 			style['zIndex'] = 100;
 		}
