@@ -16,8 +16,8 @@ var FullscreenVideo = React.createClass({
     var availableHeight = this.calcAvailableHeight(bodyHeight, headerHeight, footerHeight);
     var availableWidth = $(window).innerWidth();
 
-    var videoWidth = 1920;
-    var videoHeight = 814;
+    var videoWidth = this.props.width;
+    var videoHeight = this.props.height;
 
     var availableAspectRatio = availableWidth / availableHeight;
     var videoAspectRatio = videoWidth / videoHeight;

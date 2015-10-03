@@ -5,13 +5,13 @@
 
 	&.clients {
 		height: 50%;
-		border-right: 1px solid rgba(255,255,255,.2);
-		border-bottom: 1px solid rgba(255,255,255,.2);
+		// border-right: 1px solid rgba(255,255,255,.2);
+		// border-bottom: 1px solid rgba(255,255,255,.2);
 	}
 
 	&.behind-the-scenes {
 		height: 50%;
-		border-right: 1px solid rgba(255,255,255,.2);
+		// border-right: 1px solid rgba(255,255,255,.2);
 	}
 
 	&.we {
@@ -20,13 +20,13 @@
 
 	&.contact {
 		height: 50%;
-		border-bottom: 1px solid rgba(255,255,255,.2);
-		border-left: 1px solid rgba(255,255,255,.2);
+		// border-bottom: 1px solid rgba(255,255,255,.2);
+		// border-left: 1px solid rgba(255,255,255,.2);
 	}
 
 	&.imprint {
 		height: 50%;
-		border-left: 1px solid rgba(255,255,255,.2);
+		// border-left: 1px solid rgba(255,255,255,.2);
 	}
 }
 
@@ -35,8 +35,8 @@
 		min-height: 170px;
 		width: 100%;
 
-		border: none !important;
-		border-bottom: 1px solid rgba(255,255,255,.2) !important;
+		// border: none !important;
+		// border-bottom: 1px solid rgba(255,255,255,.2) !important;
 
 		&.we, &.clients, &.contact, &.imprint, &.behind-the-scenes {
 			height: auto;
@@ -59,12 +59,12 @@
 }
 
 .about-overview__item__image {
-	background: rgba(0,0,0,.2);
+	background: rgba(255,255,255,.2);
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	display: block;
-	opacity: 1;
+	opacity: 0;
 
 	transform: translate3d(0,0,0);
 	-webkit-transform: translate3d(0,0,0);
@@ -81,11 +81,11 @@
 
 .has-no-link .about-overview__item__image,
 .has-no-link.about-overview__item:hover .about-overview__item__image {
-  opacity: 1;
+  opacity: 0;
 }
 
 .about-overview__item:hover .about-overview__item__image {
-  opacity: .6;
+  opacity: .4;
 }
 
 .about-overview__item__overlay {
