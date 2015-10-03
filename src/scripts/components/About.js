@@ -30,7 +30,7 @@ var About = React.createClass({
 
   setVideo: function () {
     this.setState({
-      video: !Device.isMobile()
+      video: Device.isDesktop()
     });
   },
   
