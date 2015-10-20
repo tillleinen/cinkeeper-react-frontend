@@ -165,8 +165,8 @@ var PhotoItem = React.createClass({
 
 	getImageURL: function () {
 		return ResponsiveImage(
+			this.props.photo.image.image.large.url,
 			this.props.photo.image.image.medium.url,
-			this.props.photo.image.image.small.url,
 			this.props.photo.image.image.small.url
 		);
 	},
@@ -190,5 +190,5 @@ var PhotoItem = React.createClass({
   }
 });
 
-module.exports = PhotoItem; 
+module.exports = PhotoItem;
 
