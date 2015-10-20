@@ -33,12 +33,12 @@ var About = React.createClass({
       video: Device.isDesktop()
     });
   },
-  
+
   render: function () {
     var videoSources = [
       {
-        src: '../videos/about.mp4',
-        type: 'video/mp4'        
+        src: '../videos/about_2.mp4',
+        type: 'video/mp4'
       }
     ];
 
@@ -68,5 +68,5 @@ var About = React.createClass({
   }
 });
 
-module.exports = About; 
+module.exports = About;
 
