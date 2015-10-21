@@ -14,7 +14,9 @@ require('styles/PhotoItem.sass');
 var PhotoItem = React.createClass({
 	getInitialState: function () {
 		return {
-			height: 0,
+            originalHeight: this.props.photo.height,
+            originalWidth: this.props.photo.width,
+            height: this.calcHeight(),
 			zoomTranslateX: 0,
 			zoomTranslateY: 0,
 			zoomScale: 1
@@ -33,26 +35,26 @@ var PhotoItem = React.createClass({
 	handleResize: function () {
 		if (this.isMounted()) {
 			this.setHeight();
-			setTimeout(function () {
-				this.setZoomScale();
-				this.setZoomTranslation();
-			}.bind(this), 100);
+			this.setZoomScale();
+			this.setZoomTranslation();
 		}
 	},
 
 	setHeight: function () {
-		var rowWidth = $(this.getDOMNode()).parent().width();
-		var photoScale = rowWidth / this.props.photo.width;
-		this.setState({ height: Math.round(this.props.photo.height * photoScale)});
-	},
+        this.setState({ height: this.calcHeight()});
+    },
+
+    calcHeight: function () {
+        var rowWidth = $(window).width() / this.props.numRows;
+        var photoScale = rowWidth / this.props.photo.width;
+        var height = Math.round(this.props.photo.height * photoScale);
+        return height;
+    },
 
 	setZoomTranslation: function () {
 		var offset = this.computeOffset();
 		var center = this.computeCenter();
 		var dimensions = this.computeDimensions();
-
-		var scaledWidth = dimensions.width * this.state.zoomScale;
-		var scaledHeight = dimensions.height * this.state.zoomScale;
 
 		this.setState({
 			zoomTranslateX: center.x - offset.x - dimensions.width/2,
@@ -64,8 +66,8 @@ var PhotoItem = React.createClass({
 		var domNode = $(this.getDOMNode());
 
 		return {
-			x: domNode[0].getBoundingClientRect().left,
-			y: domNode[0].getBoundingClientRect().top - 60
+			x: domNode.offset().left,
+			y: domNode.offset().top - 60
 		};
 	},
 
@@ -92,11 +94,12 @@ var PhotoItem = React.createClass({
 
 
 	computeDimensions: function () {
-		var domNode = $(this.getDOMNode());
+        var rowWidth = $(window).width() / this.props.numRows;
+        var photoScale = rowWidth / this.props.photo.width;
 
 		return {
-			width: domNode.width(),
-			height: domNode.height()
+			width: rowWidth,
+			height: Math.round(this.props.photo.height * photoScale)
 		};
 	},
 

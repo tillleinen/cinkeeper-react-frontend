@@ -41,7 +41,7 @@ var PhotoRow = React.createClass({
 
     var necessaryOffset = (diff * scrollPercentage).toFixed(2);
 
-    rowNode.css('transform', 'translate3d(0,' + necessaryOffset + 'px,0)');    
+    rowNode.css('transform', 'translate3d(0,' + necessaryOffset + 'px,0)');
   },
 
   composeStyle: function () {
@@ -85,7 +85,7 @@ var PhotoRow = React.createClass({
           {
             this.props.photos.map(function (photo) {
               var isZoomed = (photo.id === this.props.zoomedImageID);
-              return  <PhotoItem key={photo.id} photo={photo} isZoomed={isZoomed} onSelect={this.props.onSelect} />;
+              return  <PhotoItem key={photo.id} photo={photo} isZoomed={isZoomed} numRows={this.props.numRows} onSelect={this.props.onSelect} />;
             }.bind(this))
           }
         </ul>
@@ -93,5 +93,5 @@ var PhotoRow = React.createClass({
   }
 });
 
-module.exports = PhotoRow; 
+module.exports = PhotoRow;
 
