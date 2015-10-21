@@ -64,10 +64,11 @@ var PhotoItem = React.createClass({
 
 	computeOffset: function () {
 		var domNode = $(this.getDOMNode());
+        var parentTranslationY = this.getTranslationYOfParent();
 
 		return {
 			x: domNode.offset().left,
-			y: domNode.offset().top - 60
+			y: domNode.offset().top - 60 - parentTranslationY
 		};
 	},
 
@@ -157,7 +158,8 @@ var PhotoItem = React.createClass({
 		var transformString = $(this.getDOMNode()).parent().css('transform');
 		var transformStringParts = transformString.split(",");
 		var translateY = parseFloat(transformStringParts[transformStringParts.length - 1]);
-		return translateY;
+
+        return isNaN(translateY) ? 0 : translateY;
 	},
 
 	composeImageStyle: function () {
