@@ -189,7 +189,7 @@ var PhotoItem = React.createClass({
   render: function () {
     return (
       <li className={this.composeClassName()} onClick={this.selectImage} style={this.composeStyle()}>
-		<img className="photo-item__image" src={this.props.photo.image.image.medium.url} style={this.composeImageStyle()} />
+		<img className="photo-item__image" src={this.getImageURL()} style={this.composeImageStyle()} />
       </li>
     );
   }
