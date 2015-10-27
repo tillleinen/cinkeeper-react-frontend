@@ -52,8 +52,8 @@ var Home = React.createClass({
 
     return (
       <div className="home">
-        <LoadingIcon/>;
-        <FullscreenVideo className="home__video" videoSources={videoSources} width={1920} height={814} />
+        <LoadingIcon/>
+        <FullscreenVideo className="home__video" videoSources={videoSources} width={1920} height={796} />
       </div>
     );
   }
