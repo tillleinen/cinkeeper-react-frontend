@@ -43,12 +43,14 @@ var About = React.createClass({
     ];
 
     var video = "";
+    var containerClassName = "about-container";
     if(this.state.video) {
       video = <FullscreenVideo className="about-overview__video" videoSources={videoSources} width={1920} height={1080} />;
+      containerClassName += ' about-container--video';
     }
 
     return (
-        <div className="about-container">
+        <div className={containerClassName}>
           <ul className="about-overview">
             {video}
           	<div className="about-overview__left">
