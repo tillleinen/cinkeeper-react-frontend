@@ -54,7 +54,7 @@ var VideoPlayer = React.createClass({
     transitionToCategory: function (event) {
         if(event.keyCode === 27) {
             var params = this.context.router.getCurrentParams();
-            this.transitionTo('category', {categorySlug: params.categorySlug});  
+            this.transitionTo('category', {categorySlug: params.categorySlug});
         }
     },
 
@@ -62,13 +62,14 @@ var VideoPlayer = React.createClass({
         var vimeoId = this.getVimeoId();
         var params = this.context.router.getCurrentParams();
         var videoSrc = '//player.vimeo.com/video/' + vimeoId + '?byline=0&title=0&portrait=0&wmode=transparent&autoplay=1';
+        var closingLink = this.props.playInstantly ? 'categories' : 'category';
 
         var iframeHeight = this.state.iframeHeight + 'px';
         return (
             <div className="video-player" style={{height: iframeHeight}} ref="videoPlayer">
                 <LoadingIcon />
                 <iframe className="video-player__iframe" src={videoSrc} width="100%" height={iframeHeight} frameBorder="0" webkitallowfullscreen mozallowfullscreen allowFullScreen wmode="transparent"></iframe>
-                <Link className="video-player__btn-close btn-close" to="category" params={{categorySlug: params.categorySlug}}>Close</Link>
+                <Link className="video-player__btn-close btn-close" to={closingLink} params={{categorySlug: params.categorySlug}}>Close</Link>
             </div>
         );
     },
@@ -94,5 +95,5 @@ var VideoPlayer = React.createClass({
     }
 });
 
-module.exports = VideoPlayer; 
+module.exports = VideoPlayer;
 

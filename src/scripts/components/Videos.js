@@ -30,6 +30,10 @@ var Videos = React.createClass({
         }
     },
 
+    redirectToCategories: function () {
+        this.transitionTo('categories');
+    },
+
     contextTypes: {
         router: React.PropTypes.func
     },
@@ -65,7 +69,7 @@ var Videos = React.createClass({
                         })
                     }
                 </ul>
-                <RouteHandler videos={category.videos}/>
+                <RouteHandler videos={category.videos} playInstantly={category.play_instantly} />
             </div>
         );
     },
@@ -79,4 +83,4 @@ var Videos = React.createClass({
     }
 });
 
-module.exports = Videos; 
+module.exports = Videos;

@@ -19,7 +19,7 @@ var VideoCategoryItem = React.createClass({
   composeClassString: function () {
     var classString = 'video-category';
     if(this.props.isSelected) {
-      classString += ' video-category--selected isClosable'; 
+      classString += ' video-category--selected isClosable';
     }
     return classString;
   },
@@ -59,7 +59,7 @@ var VideoCategoryItem = React.createClass({
 	        	<div className="video-category__image" style={this.composeImageStyle()}></div>
 	        	<div className="video-category__overlay">
 	        		<div className="video-category__overlay__caption">{this.props.data.name}</div>
-              <div className="video-category__overlay__btn-close btn-close" to="categories">Close</div>
+                    <div className="video-category__overlay__btn-close btn-close" to="categories">Close</div>
 	        	</div>
 	        </Link>
         </li>
@@ -67,4 +67,4 @@ var VideoCategoryItem = React.createClass({
   }
 });
 
-module.exports = VideoCategoryItem; 
+module.exports = VideoCategoryItem;
