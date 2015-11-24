@@ -36,8 +36,10 @@ var Home = React.createClass({
 
   render: function () {
     var videoSources = [];
+    var loading = <LoadingIcon/>;
 
     if(this.state.home_videos.length > 0) {
+        loading = ""
         videoSources = [
           {
             src: this.state.home_videos[0].webm_url,
@@ -52,7 +54,7 @@ var Home = React.createClass({
 
     return (
       <div className="home">
-        <LoadingIcon/>
+        {loading}
         <FullscreenVideo className="home__video" videoSources={videoSources} width={1920} height={796} />
       </div>
     );
