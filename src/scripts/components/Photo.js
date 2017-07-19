@@ -11,7 +11,7 @@ var Device = require('../utils/Device.js');
 
 var Request = require('../utils/Request.js');
 
-require('styles/Photo.sass');
+require('styles/Photo.scss');
 
 var Photo = React.createClass({
   getInitialState: function () {
@@ -51,7 +51,7 @@ var Photo = React.createClass({
   componentWillUnmount: function () {
     $(window).off('resize', this.calcRows);
   },
-  
+
   calcRows: function () {
     var numRows = this.calcNumRows();
     var totalHeight = this.calcTotalPhotoHeight(numRows);
@@ -135,5 +135,5 @@ var Photo = React.createClass({
   }
 });
 
-module.exports = Photo; 
+module.exports = Photo;
 

@@ -4,19 +4,19 @@ var React = require('react/addons');
 var Router = require('react-router');
 var { Route, DefaultRoute, RouteHandler, Link } = Router;
 
-require('styles/AboutItem.sass');
+require('styles/AboutItem.scss');
 
 var AboutItem = React.createClass({
 
 	composeClassString: function () {
-		var classString = 'about-overview__item';	
+		var classString = 'about-overview__item';
     classString += ' ' + this.props.className;
     classString += ' ' + (this.props.linkTo ? '' : 'has-no-link');
 		return classString;
 	},
 
   render: function () {
-    var content = 
+    var content =
       <div>
         <div className="about-overview__item__image"></div>
         <div className="about-overview__item__overlay">
@@ -36,5 +36,5 @@ var AboutItem = React.createClass({
   }
 });
 
-module.exports = AboutItem; 
+module.exports = AboutItem;
 

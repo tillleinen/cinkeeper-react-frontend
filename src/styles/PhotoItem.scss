@@ -1,0 +1,28 @@
+.photo-item {
+  opacity: .8;
+  cursor: pointer;
+
+  -webkit-transition: opacity .25s ease-in-out, -webkit-transform .4s ease-in-out, z-index .4s;
+  -moz-transition: opacity .25s ease-in-out, -moz-transform .4s ease-in-out, z-index .4s;
+  -ms-transition: opacity .25s ease-in-out, transform .4s ease-in-out, z-index .4s;
+  -o-transition: opacity .25s ease-in-out, -o-transform .4s ease-in-out, z-index .4s;
+  transition: opacity .25s ease-in-out, transform .4s ease-in-out, z-index .4s;
+
+  z-index: 0;
+  position: relative;
+}
+
+.photo-item--mobile {
+    cursor: auto;
+    opacity: 1;
+}
+
+.photo-item:hover {
+    opacity: 1;
+}
+
+.photo-item__image {
+    display: block;
+    width: 100%;
+    position: relative;
+}

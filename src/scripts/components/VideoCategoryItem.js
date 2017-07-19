@@ -8,7 +8,7 @@ var ResponsiveImage = require('../utils/ResponsiveImage');
 
 var $ = require('jquery');
 
-require('styles/VideoCategoryItem.sass');
+require('styles/VideoCategoryItem.scss');
 
 var VideoCategoryItem = React.createClass({
 

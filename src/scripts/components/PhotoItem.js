@@ -9,7 +9,7 @@ var Device = require('../utils/Device.js');
 
 var $ = require('jquery');
 
-require('styles/PhotoItem.sass');
+require('styles/PhotoItem.scss');
 
 var PhotoItem = React.createClass({
 	getInitialState: function () {

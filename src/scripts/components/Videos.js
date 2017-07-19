@@ -10,7 +10,7 @@ var VideoCategoryItem = require('./VideoCategoryItem.js');
 var $ = require('jquery');
 var _ = require('underscore');
 
-require('styles/Videos.sass');
+require('styles/Videos.scss');
 
 var Videos = React.createClass({
     mixins: [Navigation],

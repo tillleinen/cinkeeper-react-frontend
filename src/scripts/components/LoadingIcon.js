@@ -4,27 +4,27 @@ var React = require('react/addons');
 
 var $ = require('jquery');
 
-require('styles/LoadingIcon.sass');
+require('styles/LoadingIcon.scss');
 
 var LoadingIcon = React.createClass({
 
-	getInitialState: function () {
-		return {
-			height: 0
-		};
-	},
+    getInitialState: function () {
+        return {
+            height: 0
+        };
+    },
 
-	componentWillMount: function () {
-	    $(window).on('resize', this.setHeight);
-	},
+    componentWillMount: function () {
+        $(window).on('resize', this.setHeight);
+    },
 
-	componentDidMount: function () {
-	    this.setHeight();
-	},
+    componentDidMount: function () {
+        this.setHeight();
+    },
 
-	componentWillUnmount: function () {
-	    $(window).off("resize", this.setHeight);
-	},
+    componentWillUnmount: function () {
+        $(window).off("resize", this.setHeight);
+    },
 
     setHeight: function() {
         var bodyHeight = $(window).innerHeight();
@@ -38,14 +38,14 @@ var LoadingIcon = React.createClass({
         return bodyHeight - (headerHeight + footerHeight);
     },
 
-	render: function () {
-		return (
-		    <div className="loading-icon" style={{height: this.state.height + 'px'}}>
-		    	<img className="loading-icon__image" src="../../images/loading.gif" />
-		    </div>
-		);
-	}
+    render: function () {
+        return (
+            <div className="loading-icon" style={{height: this.state.height + 'px'}}>
+                <img className="loading-icon__image" src="../../images/loading.gif" />
+            </div>
+        );
+    }
 });
 
-module.exports = LoadingIcon; 
+module.exports = LoadingIcon;
 

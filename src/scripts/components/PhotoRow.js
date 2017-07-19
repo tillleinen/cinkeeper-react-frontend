@@ -4,7 +4,7 @@ var React = require('react/addons');
 var PhotoItem = require('./PhotoItem.js');
 var $ = require('jquery');
 
-require('styles/PhotoRow.sass');
+require('styles/PhotoRow.scss');
 
 var PhotoRow = React.createClass({
   getInitialState: function () {

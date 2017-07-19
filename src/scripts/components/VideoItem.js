@@ -7,7 +7,7 @@ var { Route, DefaultRoute, RouteHandler, Link } = Router;
 var ResponsiveImage = require('../utils/ResponsiveImage');
 
 var $ = require('jquery');
-require('styles/VideoItem.sass');
+require('styles/VideoItem.scss');
 
 var VideoItem = React.createClass({
 

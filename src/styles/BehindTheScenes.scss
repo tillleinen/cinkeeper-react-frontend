@@ -1,0 +1,100 @@
+.behindthescenes-gallery {
+  position: relative;
+  height: 100%;
+  overflow: auto;
+}
+
+.behindthescenes-photo-list {
+  overflow: hidden;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.behindthescenes-gallery__nav {
+  position: fixed;
+  width: 100px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.behindthescenes-gallery__nav--left {
+  left: 0;
+}
+
+
+.behindthescenes-gallery__nav--right {
+  right: 0;
+}
+
+.behindthescenes-gallery__nav__icon {
+  position: absolute;
+  height: 100px;
+  top: 50%;
+  margin-top: -50px;
+  width: 45px;
+}
+
+.behindthescenes-gallery__nav__icon::before {
+  position: absolute;
+  width: 100%;
+  content: "";
+  height: 3px;
+  background: white;
+  top: 16%;
+  left: 0;
+
+  -moz-transform: translateY(-50%) rotate(-45deg);
+  -ms-transform: translateY(-50%) rotate(-45deg); /* IE 9 */
+  -webkit-transform: translateY(-50%) rotate(-45deg); /* Chrome, Safari, Opera */
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.behindthescenes-gallery__nav__icon::after {
+  position: absolute;
+  width: 100%;
+  content: "";
+  height: 3px;
+  background: white;
+  top: -17%;
+  left: 0;
+
+  -moz-transform: translateY(50%) rotate(45deg);
+  -ms-transform: translateY(50%) rotate(45deg); /* IE 9 */
+  -webkit-transform: translateY(50%) rotate(45deg); /* Chrome, Safari, Opera */
+  transform: translateY(50%) rotate(45deg);
+}
+
+.behindthescenes-gallery__nav--left .behindthescenes-gallery__nav__icon {
+  right: 0;
+}
+
+.behindthescenes-gallery__nav--left .behindthescenes-gallery__nav__icon::before {
+  -moz-transform: translateY(-50%) rotate(45deg);
+  -ms-transform: translateY(-50%) rotate(45deg); /* IE 9 */
+  -webkit-transform: translateY(-50%) rotate(45deg); /* Chrome, Safari, Opera */
+  transform: translateY(-50%) rotate(45deg);
+
+  top: 15%;
+}
+
+.behindthescenes-gallery__nav--left .behindthescenes-gallery__nav__icon::after {
+  -moz-transform: translateY(-50%) rotate(-45deg);
+  -ms-transform: translateY(-50%) rotate(-45deg); /* IE 9 */
+  -webkit-transform: translateY(-50%) rotate(-45deg); /* Chrome, Safari, Opera */
+  transform: translateY(-50%) rotate(-45deg);
+
+  top: -15%;
+}
+
+@media screen and (max-width: 768px) {
+  .behindthescenes-gallery {
+    height: auto;
+  }
+
+  .behindthescenes-gallery__nav {
+    display: none;
+  }
+}
+

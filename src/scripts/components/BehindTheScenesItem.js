@@ -2,12 +2,12 @@
 
 var React = require('react/addons');
 
-require('styles/BehindTheScenesItem.sass');
+require('styles/BehindTheScenesItem.scss');
 var ResponsiveImage = require('../utils/ResponsiveImage');
 
 var BehindTheScenesItem = React.createClass({
 	composeStyle: function () {
-		return { 
+		return {
 			'background-image': 'url(' + this.getImageURL() + ')',
 			'width': this.props.width + 'px',
 			'height': this.props.height + 'px'
@@ -30,5 +30,5 @@ var BehindTheScenesItem = React.createClass({
   }
 });
 
-module.exports = BehindTheScenesItem; 
+module.exports = BehindTheScenesItem;
 

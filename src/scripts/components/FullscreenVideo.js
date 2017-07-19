@@ -4,9 +4,9 @@ var React = require('react/addons');
 
 var $ = require('jquery');
 
-require('styles/FullscreenVideo.sass');
+require('styles/FullscreenVideo.scss');
 
-var FullscreenVideo = React.createClass({  
+var FullscreenVideo = React.createClass({
 
   composeStyle: function () {
     var bodyHeight = $(window).innerHeight();
@@ -64,7 +64,7 @@ var FullscreenVideo = React.createClass({
   composeClassName: function () {
     return this.props.className += " fullscreen_video"
   },
-  
+
   render: function () {
     return (
         <video className={this.composeClassName()} style={this.composeStyle()} preload autoPlay loop="true">
@@ -79,5 +79,5 @@ var FullscreenVideo = React.createClass({
   }
 });
 
-module.exports = FullscreenVideo; 
+module.exports = FullscreenVideo;
 

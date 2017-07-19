@@ -7,7 +7,7 @@ var Request = require('../utils/Request.js');
 var FullscreenVideo = require('./FullscreenVideo.js');
 var LoadingIcon = require('./LoadingIcon.js');
 
-require('styles/Home.sass');
+require('styles/Home.scss');
 
 var Home = React.createClass({
     getInitialState: function () {

@@ -8,7 +8,7 @@ var LoadingIcon = require('./LoadingIcon.js');
 var Request = require('../utils/Request.js');
 var Device = require('../utils/Device.js');
 
-require('styles/BehindTheScenes.sass');
+require('styles/BehindTheScenes.scss');
 
 var $ = require('jquery');
 var _ = require('underscore');
@@ -66,7 +66,7 @@ var BehindTheScenes = React.createClass({
 
     $('html, body').animate({
       scrollLeft: scroll + scrollDistance
-    }, SCROLL_SPEED);    
+    }, SCROLL_SPEED);
   },
 
 	fetchData: function () {
@@ -142,7 +142,7 @@ var BehindTheScenes = React.createClass({
   		content = <ul className="behindthescenes-photo-list" style={{ 'width': this.calcTotalPhotoWidth() + 'px' }} onClick={this.scrollHorizontalAnimated}>
       		{
       			this.state.photos.map(function (photo) {
-      				return <BehindTheScenesItem key={photo.id} image={photo.image.image} width={this.calcPhotoWidth(photo)} height={this.calcPhotoHeight(photo)} />;	  			
+      				return <BehindTheScenesItem key={photo.id} image={photo.image.image} width={this.calcPhotoWidth(photo)} height={this.calcPhotoHeight(photo)} />;
       			}.bind(this))
       		}
       	</ul>;
@@ -162,5 +162,5 @@ var BehindTheScenes = React.createClass({
   }
 });
 
-module.exports = BehindTheScenes; 
+module.exports = BehindTheScenes;
 

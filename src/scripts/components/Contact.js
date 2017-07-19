@@ -2,7 +2,7 @@
 
 var React = require('react/addons');
 
-require('styles/Contact.sass');
+require('styles/Contact.scss');
 
 var Contact = React.createClass({
   render: function () {
@@ -25,11 +25,11 @@ var Contact = React.createClass({
         			<a href="mailto:info@cinekeeper.de">info@cinekeeper.de</a><br/>
 					<a href="http://www.cinekeeper.de">www.cinekeeper.de</a>
         		</p>
-        	</div>	
+        	</div>
 		</div>
       );
   }
 });
 
-module.exports = Contact; 
+module.exports = Contact;
 

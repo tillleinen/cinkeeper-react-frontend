@@ -7,7 +7,7 @@ var { Route, DefaultRoute, RouteHandler, Link, Navigation } = Router;
 var $ = require('jquery');
 var _ = require('underscore');
 
-require('styles/VideoPlayer.sass');
+require('styles/VideoPlayer.scss');
 
 var LoadingIcon = require('./LoadingIcon.js');
 

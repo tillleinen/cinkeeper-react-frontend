@@ -10,7 +10,7 @@ var $ = require('jquery');
 
 var Device = require('../utils/Device.js');
 
-require('styles/About.sass');
+require('styles/About.scss');
 
 var About = React.createClass({
   componentWillMount: function () {

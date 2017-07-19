@@ -10,7 +10,7 @@ var _ = require('underscore');
 var VideoCategoryItem = require('./VideoCategoryItem.js');
 var LoadingIcon = require('./LoadingIcon.js');
 
-require('styles/VideoCategories.sass');
+require('styles/VideoCategories.scss');
 
 var VideoCategories = React.createClass({
   contextTypes: {

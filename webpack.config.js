@@ -45,7 +45,7 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'react-hot!jsx-loader?harmony'
     }, {
-      test: /\.sass/,
+      test: /\.scss/,
       loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
     }, {
       test: /\.css$/,

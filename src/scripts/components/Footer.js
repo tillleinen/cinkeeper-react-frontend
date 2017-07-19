@@ -4,7 +4,7 @@ var React = require('react/addons');
 var Router = require('react-router');
 var { Route, DefaultRoute, RouteHandler, Link } = Router;
 
-require('styles/Footer.sass');
+require('styles/Footer.scss');
 
 var Footer = React.createClass({
   render: function () {
@@ -45,5 +45,5 @@ var Footer = React.createClass({
   }
 });
 
-module.exports = Footer; 
+module.exports = Footer;
 

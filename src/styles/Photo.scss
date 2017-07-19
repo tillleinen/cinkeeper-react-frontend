@@ -1,0 +1,41 @@
+.photos {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.photo-list {
+  float: left;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+
+  -webkit-transition: z-index .4s;
+  -moz-transition: z-index .4s;
+  -ms-transition: z-index .4s;
+  -o-transition: z-index .4s;
+  transition: z-index .4s;
+}
+
+.photo-list__overlay {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+
+  -webkit-transition: opacity .4s;
+  -moz-transition: opacity .4s;
+  -ms-transition: opacity .4s;
+  -o-transition: opacity .4s;
+  transition: opacity .4s;
+}
+
+.photo-list__overlay--shown {
+  pointer-events: auto;
+  opacity: 1;
+}

@@ -6,35 +6,35 @@ var { Route, DefaultRoute, RouteHandler, Link } = Router;
 
 var Request = require('../utils/Request.js');
 
-require('styles/Film.sass');
+require('styles/Film.scss');
 
 var Film = React.createClass({
-	getInitialState: function () {
-		return {
-			videoCategories: null
-		};
-	},
+    getInitialState: function () {
+        return {
+            videoCategories: null
+        };
+    },
 
-	componentDidMount: function() {
-		this.fetchData();
-	},
+    componentDidMount: function() {
+        this.fetchData();
+    },
 
-	fetchData: function () {
-		Request
-			.get('/video_categories')
-			.end(this.handleResponse);
-	},
+    fetchData: function () {
+        Request
+            .get('/video_categories')
+            .end(this.handleResponse);
+    },
 
-	handleResponse: function (err, res) {
-		if(err) {
-			console.log(err);
-		} else if(this.isMounted()) {
-			var videoCategories = JSON.parse(res.text).video_categories;
-			this.setState({
-				videoCategories: videoCategories
-			});
-		}
-	},
+    handleResponse: function (err, res) {
+        if(err) {
+            console.log(err);
+        } else if(this.isMounted()) {
+            var videoCategories = JSON.parse(res.text).video_categories;
+            this.setState({
+                videoCategories: videoCategories
+            });
+        }
+    },
 
     render: function () {
         return (
@@ -45,5 +45,5 @@ var Film = React.createClass({
     }
 });
 
-module.exports = Film; 
+module.exports = Film;
 

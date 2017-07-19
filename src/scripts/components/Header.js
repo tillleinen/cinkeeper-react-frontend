@@ -6,7 +6,7 @@ var { Route, DefaultRoute, RouteHandler, Link } = Router;
 
 var $ = require('jquery');
 
-require('styles/Header.sass');
+require('styles/Header.scss');
 
 var Header = React.createClass({
   render: function () {
@@ -30,5 +30,5 @@ var Header = React.createClass({
   }
 });
 
-module.exports = Header; 
+module.exports = Header;
 

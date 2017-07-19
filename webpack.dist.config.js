@@ -31,7 +31,7 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     new HtmlWebpackPlugin({
-      template: 'src/index-template.html'      
+      template: 'src/index-template.html'
     })
   ],
 
@@ -44,12 +44,6 @@ module.exports = {
   },
 
   module: {
-    preLoaders: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'jsxhint'
-    }],
-
     loaders: [{
       test: /\.js$/,
       exclude: /node_modules/,
@@ -58,7 +52,7 @@ module.exports = {
       test: /\.css$/,
       loader: 'style-loader!css-loader'
     }, {
-      test: /\.sass/,
+      test: /\.scss/,
       loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
     }, {
       test: /\.(png|jpg)$/,
