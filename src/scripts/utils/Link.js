@@ -19,7 +19,7 @@ var SmartLink = React.createClass({
   },
 
   parseTo(to) {
-    let parser = document.createElement('a');
+    var parser = document.createElement('a');
     parser.href = to;
     return parser;
   },
