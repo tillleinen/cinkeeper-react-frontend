@@ -2,8 +2,8 @@
 
 var React = require('react/addons');
 var Router = require('react-router');
-var { Route, DefaultRoute, RouteHandler, Link } = Router;
 
+var Link = require('../utils/Link');
 var ResponsiveImage = require('../utils/ResponsiveImage');
 
 var $ = require('jquery');
@@ -31,6 +31,9 @@ var VideoCategoryItem = React.createClass({
   },
 
   composeLink: function () {
+    if(this.props.data.url) {
+        return this.props.data.url;
+    }
     return this.props.isSelected ? "categories" : "category";
   },
 
