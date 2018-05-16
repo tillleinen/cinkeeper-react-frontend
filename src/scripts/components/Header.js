@@ -11,17 +11,17 @@ require('styles/Header.scss');
 var Header = React.createClass({
   render: function () {
     return (
-      <header className="header">
-        <nav className="nav">
-          <ul className="nav__list">
-            <li className="nav__list__item nav__list__item--left">
-              <Link to="film">Film</Link>
+      <header className='header'>
+        <nav className='nav'>
+          <ul className='nav__list'>
+            <li className='nav__list__item nav__list__item--left'>
+              <Link to='film'>Film</Link>
             </li>
-            <li className="nav__list__item nav__list__item--logo-link">
-              <Link to="about">About</Link>
+            <li className='nav__list__item nav__list__item--logo'>
+              <Link to='about'>About Us</Link>
             </li>
-            <li className="nav__list__item nav__list__item--right">
-              <Link to="photo">Photo</Link>
+            <li className='nav__list__item nav__list__item--right'>
+              <Link to='photo'>Photo</Link>
             </li>
           </ul>
         </nav>
@@ -31,4 +31,3 @@ var Header = React.createClass({
 });
 
 module.exports = Header;
-

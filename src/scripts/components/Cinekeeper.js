@@ -23,34 +23,31 @@ var Cinekeeper = React.createClass({
   },
 
   componentDidMount: function () {
-      $(window).on('resize', this.setContentHeight).trigger('resize');
+    $(window).on('resize', this.setContentHeight).trigger('resize');
   },
 
   componentWillUnmount: function () {
-      $(window).off("resize", this.setContentHeight);
+    $(window).off('resize', this.setContentHeight);
   },
 
-  setContentHeight: function() {
-      var bodyHeight = $(window).height();
-      var headerHeight = $('header').outerHeight();
-      var footerHeight = $('footer').outerHeight();
-      var height = this.calcAvailableHeight(bodyHeight, headerHeight, footerHeight);
-      this.setState({height: height});
+  setContentHeight: function () {
+    var bodyHeight = $(window).height();
+    var headerHeight = $('header').outerHeight();
+    var footerHeight = $('footer').outerHeight();
+    var height = this.calcAvailableHeight(bodyHeight, headerHeight, footerHeight);
+    this.setState({height: height});
   },
 
   calcAvailableHeight: function (bodyHeight, headerHeight, footerHeight) {
-      return bodyHeight - (headerHeight + footerHeight);
+    return bodyHeight - (headerHeight + footerHeight);
   },
 
-  render: function() {
+  render: function () {
     return (
-      <div className="container">
+      <div className='container'>
         <Header />
-        <Link className="logo" to="home">
-          Cinekeeper
-        </Link>
-        <div className="content" style={{'height': this.state.height + 'px'}}>
-          <RouteHandler/>
+        <div className='content' style={{'height': this.state.height + 'px'}}>
+          <RouteHandler />
         </div>
         <Footer />
       </div>
