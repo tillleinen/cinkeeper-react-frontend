@@ -29,24 +29,23 @@ var About = React.createClass({
 
   render: function () {
     return (
-        <div className="about-container">
-          <ul className="about-overview">
-          	<div className="about-overview__left">
-              <AboutItem linkTo="clients" className="clients" text="Clients" />
-			<AboutItem linkTo="behindthescenes" className="behind-the-scenes" text="Behind the Scenes" />
-            </div>
-            <div className="about-overview__center">
-              <AboutItem className="we" text="We" />
-            </div>
-            <div className="about-overview__right">
-              <AboutItem linkTo="contact" className="contact" text="Contact" />
-              <AboutItem linkTo="imprint" className="imprint" text="Impressum" />
-          	</div>
-          </ul>
-        </div>
-      );
+      <div className='about-container'>
+        <ul className='about-overview'>
+          <div className='about-overview__left'>
+            <AboutItem linkTo='clients' className='clients' text='Clients' />
+            <AboutItem linkTo='behindthescenes' className='behind-the-scenes' text='Behind the Scenes' />
+          </div>
+          <div className='about-overview__center'>
+            <AboutItem linkTo='we' className='we' text='We' />
+          </div>
+          <div className='about-overview__right'>
+            <AboutItem linkTo='contact' className='contact' text='Contact' />
+            <AboutItem linkTo='imprint' className='imprint' text='Imprint' />
+          </div>
+        </ul>
+      </div>
+    );
   }
 });
 
 module.exports = About;
-
