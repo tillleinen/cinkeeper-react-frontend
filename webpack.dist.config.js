@@ -16,22 +16,23 @@ module.exports = {
     filename: 'assets/main-[chunkhash].js'
   },
 
-  debug: false,
+  debug: true,
   devtool: false,
   entry: './src/scripts/components/main.js',
 
   stats: {
     colors: true,
-    reasons: false
+    reasons: true
   },
 
   plugins: [
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
+    // new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     new HtmlWebpackPlugin({
-      template: 'src/index-template.html'
+      template: 'src/index-template.html',
+      filename: 'index-template.html'
     })
   ],
 

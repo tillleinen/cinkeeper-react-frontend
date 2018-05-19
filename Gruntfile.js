@@ -5,7 +5,7 @@ var mountFolder = function (connect, dir) {
 };
 
 var webpackDistConfig = require('./webpack.dist.config.js'),
-    webpackDevConfig = require('./webpack.config.js');
+  webpackDevConfig = require('./webpack.config.js');
 
 module.exports = function (grunt) {
   // Let *load-grunt-tasks* require everything
@@ -31,11 +31,11 @@ module.exports = function (grunt) {
         port: 8000,
         webpack: webpackDevConfig,
         publicPath: '/assets/',
-        contentBase: './<%= pkg.src %>/',
+        contentBase: './<%= pkg.src %>/'
       },
 
       start: {
-        keepAlive: true,
+        keepAlive: true
       }
     },
 
@@ -65,12 +65,6 @@ module.exports = function (grunt) {
       },
       dist: {
         path: 'http://localhost:<%= connect.options.port %>/'
-      }
-    },
-
-    karma: {
-      unit: {
-        configFile: 'karma.conf.js'
       }
     },
 
@@ -135,10 +129,8 @@ module.exports = function (grunt) {
     ]);
   });
 
-  grunt.registerTask('test', ['karma']);
-
   grunt.registerTask('build', ['clean', 'copy', 'shell:envify', 'webpack']);
-  
+
   grunt.registerTask('heroku:production', ['build']);
 
   grunt.registerTask('default', []);
